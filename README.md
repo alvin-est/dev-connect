@@ -1,4 +1,4 @@
-# Group Project 03 - DevConnect
+# Group Project 03 - Dev Deploy
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ## Description
 A social media and networking platform to connect potential employers with junior and novice developers.
