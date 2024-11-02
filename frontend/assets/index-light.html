@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DevDeploy</title>
+  <title>DevDeploy - Light Mode</title>
   <style>
     /* Basic Reset */
     * {
@@ -22,7 +22,7 @@
 
     .container {
       display: flex;
-      height: 100vh;
+      height: calc(100vh - 40px); /* Subtracting footer height */
     }
 
     .left, .right {
@@ -77,11 +77,24 @@
 
     .button-login {
       background-color: #d4f551; /* accent color */
-      color:#01070e
     }
 
     .button:hover {
       opacity: 0.8;
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #ffffff;
+      color: #01070e;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.875rem;
+    }
+
+    footer a {
+      color: #127ef3;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -101,6 +114,17 @@
     </div>
   </div>
 
-</body>
+  <!-- Light Mode Footer -->
+  <footer>
+    <p>
+      &copy; 2024 
+      <a href="https://github.com/alvin-profile" target="_blank">Alvin</a>, 
+      <a href="https://github.com/cameron-profile" target="_blank">Cameron</a>, 
+      <a href="https://github.com/tanaika-profile" target="_blank">Tanaika</a> &amp; 
+      <a href="https://github.com/kate-profile" target="_blank">Kate</a>
+    </p>
+  </footer>
 
+</body>
 </html>
+

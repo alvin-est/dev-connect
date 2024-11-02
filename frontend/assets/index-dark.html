@@ -22,7 +22,7 @@
 
     .container {
       display: flex;
-      height: 100vh;
+      height: calc(100vh - 40px); /* Subtracting footer height */
     }
 
     .left, .right {
@@ -36,8 +36,8 @@
 
     /* Left Side Styles */
     .left {
-      background-color: #1a1a1a; /* Darker shade */
-      color: #e0e0e0; /* Light text color */
+      background-color: #127ef3; /* Darker shade */
+      color: #ffffff; /* Light text color */
       font-family: 'Fira Code', monospace;
     }
 
@@ -82,6 +82,20 @@
     .button:hover {
       opacity: 0.9;
     }
+
+    /* Footer Styles */
+    footer {
+      background-color: #121212;
+      color: #e0e0e0;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.875rem;
+    }
+
+    footer a {
+      color: #f7926e;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -99,6 +113,17 @@
       <a href="#" class="button button-login">Login</a>
     </div>
   </div>
+
+  <!-- Dark Mode Footer -->
+  <footer>
+    <p>
+      &copy; 2024 
+      <a href="https://github.com/alvin-profile" target="_blank">Alvin</a>, 
+      <a href="https://github.com/cameron-profile" target="_blank">Cameron</a>, 
+      <a href="https://github.com/tanaika-profile" target="_blank">Tanaika</a> &amp; 
+      <a href="https://github.com/kate-profile" target="_blank">Kate</a>
+    </p>
+  </footer>
 
 </body>
 </html>
