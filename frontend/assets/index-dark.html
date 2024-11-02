@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevDeploy - Dark Mode</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    /* Layout Styles */
+    body, html {
+      height: 100%;
+      font-family: 'Fira Sans', sans-serif;
+      background-color: #0a0a0a; /* Dark background */
+      color: #e0e0e0; /* Light text color */
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .left, .right {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Left Side Styles */
+    .left {
+      background-color: #1a1a1a; /* Darker shade */
+      color: #e0e0e0; /* Light text color */
+      font-family: 'Fira Code', monospace;
+    }
+
+    .left h1 {
+      font-size: 4.210rem; /* 5xl font size */
+      font-weight: 700;
+    }
+
+    .left p {
+      font-size: 1.333rem; /* xl font size */
+      text-align: center;
+      max-width: 300px;
+      margin-top: 1rem;
+    }
+
+    /* Right Side Styles */
+    .right {
+      background-color: #121212; /* Darker side background */
+    }
+
+    .button {
+      width: 50%;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 1rem; /* base font size */
+      font-weight: 700;
+      color: #0a0a0a; /* Dark text on buttons */
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .button-signup {
+      background-color: #f7926e; /* secondary color */
+    }
+
+    .button-login {
+      background-color: #d4f551; /* accent color */
+    }
+
+    .button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Left Side - App Name and Description -->
+    <div class="left">
+      <h1>DevDeploy</h1>
+      <p>A platform for junior developers to showcase their skills and connect with businesses for project-based opportunities.</p>
+    </div>
+
+    <!-- Right Side - Sign Up and Login Buttons -->
+    <div class="right">
+      <a href="#" class="button button-signup">Sign Up</a>
+      <a href="#" class="button button-login">Login</a>
+    </div>
+  </div>
+
+</body>
+</html>
