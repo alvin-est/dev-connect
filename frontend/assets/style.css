@@ -10,6 +10,7 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
+  /* Header */
   header {
     display: flex;
     justify-content: space-between;
@@ -34,10 +35,36 @@
     border-radius: 5px;
   }
   
+  /* Container */
   .container {
     display: flex;
-    height: calc(100vh - 100px); /* Subtracting header and footer height */
+    height: calc(100vh - 100px);
     font-family: 'Fira Sans', sans-serif;
+  }
+  
+  /* Left Container */
+  .left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #b7d7fa; /* Light blue background */
+    color: #01070e;
+  }
+  
+  .left h1 {
+    font-size: 4.21rem; /* 5xl font size */
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+  }
+  
+  .left p {
+    font-size: 1.333rem; /* xl font size */
+    text-align: center;
+    max-width: 300px;
+    margin-top: 1rem;
   }
   
   /* Right Container Styling */
@@ -49,7 +76,7 @@
     align-items: center;
     padding: 20px;
     position: relative;
-    color: #0a0a0a; /* Default text color for light mode */
+    color: #0a0a0a;
   }
   
   .right::before {
@@ -63,22 +90,20 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.4; /* Adjust this value to control the intensity */
+    opacity: 0.4;
     z-index: 1;
   }
   
-  /* Ensuring buttons and text are on top of the background and overlay */
   .right h1, .right .button {
     position: relative;
     z-index: 2;
   }
   
-  /* Hide elements by default */
+  /* Form Styling */
   .hidden {
     display: none;
   }
   
-  /* Form styling within the right container */
   #registration-form, #login-form {
     width: 80%;
     padding: 20px;
@@ -124,12 +149,30 @@
     cursor: pointer;
   }
   
-  /* Button styles */
-  .button {
-    width: 50%;
-    padding: 10px;
-    margin-bottom: 10px;
+  /* Close Button Styling */
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    background: #f7926e;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
     font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Button styling */
+  .button {
+    width: 70%; /* Adjust width for larger buttons */
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 1.2rem; /* Slightly larger font size */
     font-weight: 700;
     text-align: center;
     border-radius: 5px;
@@ -149,33 +192,8 @@
   }
   
   .button:hover {
-    opacity: 0.8;
+    opacity: 0.9;
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Left Section */
-  .left {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-color: #b7d7fa;
-    color: #01070e;
-  }
-  
-  .left h1 {
-    font-size: 4.21rem;
-    font-family: 'Fira Code', monospace;
-    font-weight: 700;
-  }
-  
-  .left p {
-    font-size: 1.333rem;
-    text-align: center;
-    max-width: 300px;
-    margin-top: 1rem;
   }
   
   /* Footer */
