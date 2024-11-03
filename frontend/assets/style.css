@@ -148,6 +148,23 @@
     border-radius: 5px;
     cursor: pointer;
   }
+
+  /* Radio Group Styling */
+.radio-group {
+    display: flex;
+    gap: 40px; /* Adjust the spacing between options as needed */
+    margin-top: 10px;
+  }
+  
+  .radio-option {
+    display: flex;
+    align-items: center;
+  }
+  
+  .radio-option input[type="radio"] {
+    margin-right: 8px; /* Space between radio button and label */
+  }
+  
   
   /* Close Button Styling */
   .close-button {
@@ -161,18 +178,20 @@
     border: none;
     border-radius: 5px;
     font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    line-height: 0;
   }
   
-  /* Button styling */
+  /* Button styling for Sign Up and Login Buttons */
   .button {
-    width: 70%; /* Adjust width for larger buttons */
-    padding: 12px;
+    width: 80%; /* Restore original width */
+    padding: 15px;
     margin-bottom: 15px;
-    font-size: 1.2rem; /* Slightly larger font size */
+    font-size: 1.2rem;
     font-weight: 700;
     text-align: center;
     border-radius: 5px;
