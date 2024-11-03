@@ -23,7 +23,7 @@
 
     <!-- Right Side - Sign Up and Login Buttons -->
     <div class="right">
-      <!-- Sign Up and Login Buttons -->
+      <!-- Sign Up and Login Buttons Container -->
       <div id="button-container">
         <a href="#" class="button button-signup" id="sign-up-button">Sign Up</a>
         <a href="#" class="button button-login" id="login-button">Login</a>
@@ -31,7 +31,6 @@
 
       <!-- Registration Form (hidden by default) -->
       <div id="registration-form" class="hidden">
-        <!-- <button class="close-button" id="close-registration">X</button> -->
         <h2>Create Your Account</h2>
         <form>
           <label for="first-name">First Name:</label>
@@ -46,19 +45,18 @@
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" required>
 
-        <!-- Radio buttons for Profile Type -->
-        <label>Profile Type:</label>
-         <div class="radio-group">
+          <!-- Radio buttons for Profile Type -->
+          <label>Profile Type:</label>
+          <div class="radio-group">
             <div class="radio-option">
-                <input type="radio" id="developer" name="profile-type" value="developer" required>
-            <label for="developer">Developer</label>
-         </div>
+              <input type="radio" id="developer" name="profile-type" value="developer" required>
+              <label for="developer">Developer</label>
+            </div>
             <div class="radio-option">
-                <input type="radio" id="recruiter" name="profile-type" value="recruiter">
-            <label for="recruiter">Recruiter</label>
-        </div>
-    </div>
-
+              <input type="radio" id="recruiter" name="profile-type" value="recruiter">
+              <label for="recruiter">Recruiter</label>
+            </div>
+          </div>
 
           <button type="submit" class="button button-signup">Register</button>
         </form>
@@ -66,7 +64,6 @@
 
       <!-- Login Form (hidden by default) -->
       <div id="login-form" class="hidden">
-        <!-- <button class="close-button" id="close-login">X</button> -->
         <h2>Sign In</h2>
         <form>
           <label for="login-username">Username:</label>
@@ -95,4 +92,3 @@
   <script src="./index.js"></script>
 </body>
 </html>
-
