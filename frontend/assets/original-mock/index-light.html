@@ -59,17 +59,25 @@
     }
 
     .button {
-      width: 50%;
-      padding: 10px;
-      margin-bottom: 10px;
-      font-size: 1rem; /* base font size */
-      font-weight: 700;
-      color: #ffffff;
-      text-align: center;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-    }
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1rem; /* base font size */
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  /* Drop shadow for light mode */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+  .button:hover {
+  opacity: 0.8;
+  /* Add a slightly deeper shadow on hover */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
 
     .button-signup {
       background-color: #f7926e; /* secondary color */
@@ -77,6 +85,7 @@
 
     .button-login {
       background-color: #d4f551; /* accent color */
+      color:#01070e
     }
 
     .button:hover {

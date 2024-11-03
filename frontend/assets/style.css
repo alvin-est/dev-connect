@@ -1,0 +1,202 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Fira Sans', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #127ef3;
+    color: white;
+  }
+  
+  header h1 {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.5rem;
+  }
+  
+  .theme-toggle {
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    background: #f7926e;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .container {
+    display: flex;
+    height: calc(100vh - 100px); /* Subtracting header and footer height */
+    font-family: 'Fira Sans', sans-serif;
+  }
+  
+
+  .right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    color: #0a0a0a; /* Default text color for light mode */
+  }
+  
+  .right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./assets/Screenshot 2024-11-03 at 11.21.34 AM.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.4; /* Adjust this value to control the intensity */
+    z-index: 1; /* Place it below the buttons */
+  }
+  
+  /* Ensuring buttons and text are on top of the background and overlay */
+  .right h1, .right .button {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Button styles */
+  .button {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1rem; /* base font size */
+    font-weight: 700;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button-signup {
+    background-color: #f7926e;
+    color: #ffffff;
+  }
+  
+  .button-login {
+    background-color: #d4f551;
+    color: #0a0a0a;
+  }
+  
+  .button:hover {
+    opacity: 0.8;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+
+  .left, .right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Updated Left Section */
+  .left {
+    background-color: #b7d7fa; /* New light blue background for light mode */
+    color: #01070e; /* Dark text color for readability */
+  }
+  
+  .left h1 {
+    font-size: 4.21rem; /* 5xl font size to match original */
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+  }
+  
+  .left p {
+    font-size: 1.333rem; /* xl font size */
+    text-align: center;
+    max-width: 300px;
+    margin-top: 1rem;
+  }
+  
+  .button {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1rem; /* base font size */
+    font-weight: 700;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button-signup {
+    background-color: #f7926e;
+    color: #ffffff;
+  }
+  
+  .button-login {
+    background-color: #d4f551;
+    color: #0a0a0a;
+  }
+  
+  .button:hover {
+    opacity: 0.8;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  footer {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.875rem;
+    background-color: #ffffff;
+    color: #01070e;
+  }
+  
+  footer a {
+    color: #127ef3;
+    text-decoration: none;
+  }
+  
+  /* Dark Mode Styles */
+  body.dark-mode {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+  }
+  
+  body.dark-mode header {
+    background-color: #1a1a1a;
+  }
+  
+  body.dark-mode .left {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+  
+  body.dark-mode .right {
+    background-color: #121212;
+  }
+  
+  body.dark-mode footer {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+  }
+  
+  body.dark-mode footer a {
+    color: #f7926e;
+  }
+  
