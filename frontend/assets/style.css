@@ -40,7 +40,7 @@
     font-family: 'Fira Sans', sans-serif;
   }
   
-
+  /* Right Container Styling */
   .right {
     width: 50%;
     display: flex;
@@ -64,7 +64,7 @@
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.4; /* Adjust this value to control the intensity */
-    z-index: 1; /* Place it below the buttons */
+    z-index: 1;
   }
   
   /* Ensuring buttons and text are on top of the background and overlay */
@@ -73,12 +73,63 @@
     z-index: 2;
   }
   
+  /* Hide elements by default */
+  .hidden {
+    display: none;
+  }
+  
+  /* Form styling within the right container */
+  #registration-form, #login-form {
+    width: 80%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  #registration-form h2, #login-form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  #registration-form label, #login-form label {
+    display: block;
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+  
+  #registration-form input[type="text"],
+  #registration-form input[type="password"],
+  #login-form input[type="text"],
+  #login-form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  #registration-form button, #login-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #f7926e;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
   /* Button styles */
   .button {
     width: 50%;
     padding: 10px;
     margin-bottom: 10px;
-    font-size: 1rem; /* base font size */
+    font-size: 1rem;
     font-weight: 700;
     text-align: center;
     border-radius: 5px;
@@ -102,73 +153,42 @@
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
   }
   
-
-  .left, .right {
+  /* Left Section */
+  .left {
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
-  }
-  
-  /* Updated Left Section */
-  .left {
-    background-color: #b7d7fa; /* New light blue background for light mode */
-    color: #01070e; /* Dark text color for readability */
+    background-color: #b7d7fa;
+    color: #01070e;
   }
   
   .left h1 {
-    font-size: 4.21rem; /* 5xl font size to match original */
+    font-size: 4.21rem;
     font-family: 'Fira Code', monospace;
     font-weight: 700;
   }
   
   .left p {
-    font-size: 1.333rem; /* xl font size */
+    font-size: 1.333rem;
     text-align: center;
     max-width: 300px;
     margin-top: 1rem;
   }
   
-  .button {
-    width: 50%;
-    padding: 10px;
-    margin-bottom: 10px;
-    font-size: 1rem; /* base font size */
-    font-weight: 700;
-    text-align: center;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .button-signup {
-    background-color: #f7926e;
-    color: #ffffff;
-  }
-  
-  .button-login {
-    background-color: #d4f551;
-    color: #0a0a0a;
-  }
-  
-  .button:hover {
-    opacity: 0.8;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-  }
-  
+  /* Footer */
   footer {
     padding: 10px;
     text-align: center;
     font-size: 0.875rem;
-    background-color: #ffffff;
+    background-color: #4093f2;
     color: #01070e;
   }
   
   footer a {
-    color: #127ef3;
+    color: #f7926e;
     text-decoration: none;
   }
   
@@ -179,7 +199,7 @@
   }
   
   body.dark-mode header {
-    background-color: #1a1a1a;
+    background-color: #063e79;
   }
   
   body.dark-mode .left {
@@ -192,7 +212,7 @@
   }
   
   body.dark-mode footer {
-    background-color: #0a0a0a;
+    background-color: #063e79;
     color: #e0e0e0;
   }
   

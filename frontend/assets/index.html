@@ -11,7 +11,7 @@
   <!-- Header with Dark/Light Mode Toggle -->
   <header>
     <h1>DevDeploy</h1>
-    <button id="theme-toggle" class="theme-toggle">Switch to Dark Mode</button>
+    <button id="theme-toggle" class="theme-toggle">Dark Mode</button>
   </header>
 
   <div class="container">
@@ -23,8 +23,55 @@
 
     <!-- Right Side - Sign Up and Login Buttons -->
     <div class="right">
-      <a href="#" class="button button-signup">Sign Up</a>
-      <a href="#" class="button button-login">Login</a>
+      <!-- Sign Up and Login Buttons -->
+      <div id="button-container">
+        <a href="#" class="button button-signup" id="sign-up-button">Sign Up</a>
+        <a href="#" class="button button-login" id="login-button">Login</a>
+      </div>
+
+      <!-- Registration Form (hidden by default) -->
+      <div id="registration-form" class="hidden">
+        <h2>Create Your Account</h2>
+        <form>
+          <label for="first-name">First Name:</label>
+          <input type="text" id="first-name" name="first-name" required>
+
+          <label for="last-name">Last Name:</label>
+          <input type="text" id="last-name" name="last-name" required>
+
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+
+          <label>Profile Type:</label>
+          <div>
+            <input type="radio" id="developer" name="profile-type" value="developer" required>
+            <label for="developer">Developer</label>
+          </div>
+          <div>
+            <input type="radio" id="recruiter" name="profile-type" value="recruiter">
+            <label for="recruiter">Recruiter</label>
+          </div>
+
+          <button type="submit" class="button button-signup">Register</button>
+        </form>
+      </div>
+
+      <!-- Login Form (hidden by default) -->
+      <div id="login-form" class="hidden">
+        <h2>Sign In</h2>
+        <form>
+          <label for="login-username">Username:</label>
+          <input type="text" id="login-username" name="login-username" required>
+
+          <label for="login-password">Password:</label>
+          <input type="password" id="login-password" name="login-password" required>
+
+          <button type="submit" class="button button-login">Sign In</button>
+        </form>
+      </div>
     </div>
   </div>
 
