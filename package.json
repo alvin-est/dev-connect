@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A social media and networking platform to connect potential employers with junior and novice developers.",
   "main": "index.js",
+  "proxy": "http://localhost:3000",
   "scripts": {
     "start": "react-scripts start",                
     "build": "react-scripts build",                
