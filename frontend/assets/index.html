@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevDeploy</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="light-mode">
+
+  <!-- Header with Dark/Light Mode Toggle -->
+  <header>
+    <h1>DevDeploy</h1>
+    <button id="theme-toggle" class="theme-toggle">Dark Mode</button>
+  </header>
+
+  <div class="container">
+    <!-- Left Side - App Name and Description -->
+    <div class="left">
+      <h1>DevDeploy</h1>
+      <p>A platform for junior developers to showcase their skills and connect with businesses for project-based opportunities.</p>
+    </div>
+
+    <!-- Right Side - Sign Up and Login Buttons -->
+    <div class="right">
+      <!-- Sign Up and Login Buttons Container -->
+      <div id="button-container">
+        <a href="#" class="button button-signup" id="sign-up-button">Sign Up</a>
+        <a href="#" class="button button-login" id="login-button">Login</a>
+      </div>
+
+      <!-- Registration Form (hidden by default) -->
+      <div id="registration-form" class="hidden">
+        <h2>Create Your Account</h2>
+        <form>
+          <label for="first-name">First Name:</label>
+          <input type="text" id="first-name" name="first-name" required>
+
+          <label for="last-name">Last Name:</label>
+          <input type="text" id="last-name" name="last-name" required>
+
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+
+          <!-- Radio buttons for Profile Type -->
+          <label>Profile Type:</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="developer" name="profile-type" value="developer" required>
+              <label for="developer">Developer</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="recruiter" name="profile-type" value="recruiter">
+              <label for="recruiter">Recruiter</label>
+            </div>
+          </div>
+
+          <button type="submit" class="button button-signup">Register</button>
+        </form>
+      </div>
+
+      <!-- Login Form (hidden by default) -->
+      <div id="login-form" class="hidden">
+        <h2>Sign In</h2>
+        <form>
+          <label for="login-username">Username:</label>
+          <input type="text" id="login-username" name="login-username" required>
+
+          <label for="login-password">Password:</label>
+          <input type="password" id="login-password" name="login-password" required>
+
+          <button type="submit" class="button button-login">Sign In</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      &copy; 2024 
+      <a href="https://github.com/alvin-est" target="_blank">Alvin</a>, 
+      <a href="https://github.com/cameron-profile" target="_blank">Cameron</a>, 
+      <a href="https://github.com/tanaika-profile" target="_blank">Tanaika</a> &amp; 
+      <a href="https://github.com/KateHanSta17" target="_blank">Kate</a>
+    </p>
+  </footer>
+
+  <script src="./index.js"></script>
+</body>
+</html>

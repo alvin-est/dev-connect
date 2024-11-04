@@ -1,0 +1,249 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fira Sans', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #127ef3;
+    color: white;
+}
+
+header h1 {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.5rem;
+}
+
+.theme-toggle {
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    background: #f7926e;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Container */
+.container {
+    display: flex;
+    height: calc(100vh - 100px);
+    font-family: 'Fira Sans', sans-serif;
+}
+
+/* Left Container */
+.left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #b7d7fa;
+    color: #01070e;
+}
+
+.left h1 {
+    font-size: 4.21rem;
+    font-family: 'Fira Code', monospace;
+    font-weight: 700;
+}
+
+.left p {
+    font-size: 1.333rem;
+    text-align: center;
+    max-width: 300px;
+    margin-top: 1rem;
+}
+
+/* Right Container Styling */
+.right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    color: #0a0a0a;
+}
+
+.right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./assets/Screenshot 2024-11-03 at 11.21.34 AM.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+/* Button Container for Vertical Layout */
+#button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    z-index: 2;
+}
+
+/* Button styling for Sign Up and Login Buttons */
+.button {
+    width: 70%;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button-signup {
+    background-color: #f7926e;
+    color: #ffffff;
+}
+
+.button-login {
+    background-color: #d4f551;
+    color: #0a0a0a;
+}
+
+.button:hover {
+    opacity: 0.9;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Form styling */
+.hidden {
+    display: none;
+}
+
+#registration-form, #login-form {
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Form labels and inputs */
+#registration-form h2, #login-form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #333;
+}
+
+#registration-form label, #login-form label {
+    display: block;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+#registration-form input[type="text"],
+#registration-form input[type="password"],
+#login-form input[type="text"],
+#login-form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#registration-form button, #login-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #f7926e;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Radio Group Styling */
+.radio-group {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+}
+
+.radio-option input[type="radio"] {
+    margin-right: 8px;
+}
+
+/* Footer */
+footer {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.875rem;
+    background-color: #4093f2;
+    color: #01070e;
+}
+
+footer a {
+    color: #f7926e;
+    text-decoration: none;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+}
+
+body.dark-mode header {
+    background-color: #063e79;
+}
+
+body.dark-mode .left {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .right {
+    background-color: #121212;
+}
+
+body.dark-mode footer {
+    background-color: #063e79;
+    color: #e0e0e0;
+}
+
+body.dark-mode footer a {
+    color: #f7926e;
+}
