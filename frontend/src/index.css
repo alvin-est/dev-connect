@@ -1,0 +1,33 @@
+/* src/index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.custom-theme-toggle {
+  transition: background-color 0.3s ease;
+}
+
+.custom-header {
+  background-color: #edf2f7;
+}
+
+.custom-footer {
+  background-color: #edf2f7;
+  color: #2d3748;
+}
+
+.dark .custom-header {
+  background-color: #2d3748;
+  color: #edf2f7;
+}
+
+.dark .custom-footer {
+  background-color: #1a202c;
+  color: #edf2f7;
+}
