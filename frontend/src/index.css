@@ -7,6 +7,8 @@
 /* Custom styles */
 body {
   font-family: 'Inter', sans-serif;
+  margin: 0; /* Remove default margin from body */
+  padding: 0;
 }
 
 .custom-theme-toggle {
@@ -18,10 +20,15 @@ body {
 }
 
 .custom-footer {
-  background-color: #edf2f7;
-  color: #2d3748;
-}
-
+    background-color: #edf2f7;
+    color: #2d3748;
+    margin-top: auto;
+    border-top: 2px solid #f4f6f9; /* Increase the border thickness */
+    padding: 10px 0; /* Adjust padding as necessary */
+  }
+  .custom-footer p {
+    margin: 0; /* Remove margin from footer paragraph */
+  }
 .dark .custom-header {
   background-color: #2d3748;
   color: #edf2f7;
