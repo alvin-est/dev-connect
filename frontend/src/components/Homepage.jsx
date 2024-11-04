@@ -4,8 +4,9 @@ import React from 'react';
 const Homepage = () => {
   return (
     <div className="flex w-full h-screen bg-gray-100 relative">
+      
       {/* Left Section - Form */}
-      <div className="flex flex-col justify-center items-center w-1/2 p-10 border-r bg-white shadow-md relative">
+      <div className="flex flex-col justify-center items-center w-full md:w-1/2 p-10 border-r bg-white shadow-md relative">
         <h1 className="text-4xl font-bold text-gray-800 mb-4">Welcome to DevDeploy</h1>
         <p className="text-gray-600 text-lg mb-8 text-center max-w-md">
           Connect with opportunities that match your skills and availability.
@@ -28,30 +29,19 @@ const Homepage = () => {
           >
             Login
           </button>
-          <p className="text-gray-600 mt-6 flex items-center">
-            New here? <a href="/signup" className="text-blue-500 hover:underline ml-1">Sign In</a>
-            {/* Right Corner Image */}
-            <img
-              src="./src/assets/wallpaper.png" // Replace with your image path
-              alt="Right Corner"
-              style={{ marginLeft: '800px', width: '600px', height: 'auto',marginTop: '-140px' }} // Inline styles for size
-            />
+          <p className="text-gray-600 mt-6">
+            New here? <a href="/signup" className="text-blue-500 hover:underline ml-1">Sign Up</a>
           </p>
         </form>
       </div>
 
-      {/* Right Section - Placeholder Image */}
+      {/* Right Section - Background Image */}
       <div
-        className="flex justify-center items-center w-full md:w-1/2 bg-gray-50"
+        className="hidden md:flex w-1/2 bg-cover bg-center"
         style={{
           backgroundImage: `url('./src/assets/wallpaper.png')`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
         }}
-      >
-        <div className="w-3/4 h-3/4 shadow-lg rounded-lg" />
-      </div>
+      />
     </div>
   );
 };
