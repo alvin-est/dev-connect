@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/dev-deploy');
+require('dotenv').config()
+mongoose.connect("mongodb+srv://cameronbeattie97:ljeg2xVJcaGsko7L@cluster0.0w6qh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 
 module.exports = mongoose.connection;
