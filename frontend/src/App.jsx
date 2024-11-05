@@ -1,8 +1,10 @@
 
 // src/App.jsx
 import React, { useState } from 'react';
+
 import './App.css';
 import Homepage from './components/Homepage.jsx';
+//import UserProfile from './components/UserProfile.jsx';
 
 function App() {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -34,6 +36,8 @@ function App() {
 
             {/* Main Content */}
             <Homepage isDarkMode={isDarkMode} />
+
+            
 
             {/* Footer */}
             <footer className="custom-footer p-4 text-center w-full border-t bg-white dark:bg-gray-800 shadow-md">
