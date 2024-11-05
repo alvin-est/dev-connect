@@ -14,26 +14,24 @@ const commentSchema = new Schema({
     },
 
     // author
-    user: {
+    author: {
         type: Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
+
+    // profile - Reference to a Profile document
+    recipient: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+
     // Timestamp for when the comment was created
     createdAt: {
         type: Date,
         default: Date.now
     },
-
-    // profile - Reference to a Profile document
-    profile: {
-        type: Schema.Types.ObjectId,
-        ref: 'Profile',
-        required: true
-    },
-  
-    // Orders - Array of Order documents
-    orders: [Order.schema]
 });
 
 const User = mongoose.model('Comment', commentSchema);
