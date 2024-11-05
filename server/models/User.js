@@ -70,6 +70,18 @@ const userSchema = new Schema({
     }],
 
     /* add skills */
+    skills: [{
+      type: String,
+      trim: true,
+      maxlength: 2000 // A reasonable upper limit for a URL
+    }],
+
+    /* add user type */
+    userType: {
+      type: String,
+      enum: ['developer', 'user'],
+      default: 'user'
+    },
   
 });
   
