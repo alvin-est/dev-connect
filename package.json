@@ -5,12 +5,12 @@
   "main": "index.js",
   "proxy": "http://localhost:3000",
   "scripts": {
-    "start": "react-scripts start",                
-    "test": "react-scripts test",                  
-    "eject": "react-scripts eject",                
-    "dev": "concurrently \"npm run server\" \"npm run start\"",  
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "dev": "concurrently \"npm run server\" \"npm run start\"",
     "server": "nodemon server.js",
-    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"" ,          
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
     "build": "cd client && npm run build",
     "install": "cd server && npm i && cd ../client && npm i"
   },
@@ -18,18 +18,18 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "concurrently": "^9.0.1",                    
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "tailwindcss": "^3.0.23",
-    "postcss": "^8.4.6",
-    "autoprefixer": "^10.4.2"
+    "tailwindcss": "^3.0.23"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.5",       
-    "@testing-library/react": "^13.1.1",           
-    "@testing-library/user-event": "^13.5.0"       
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/user-event": "^13.5.0",
+    "concurrently": "^9.1.0"
   },
   "browserslist": {
     "production": [
