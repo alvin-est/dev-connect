@@ -3,9 +3,11 @@ const { Schema } = mongoose;
 const User = require('./User');
 const dateFormat = require('../utils/dateFormat');
 
+/* Schema embedded in User to represent each Profile's comments */
 const commentSchema = new Schema({
     content: String,
     author: { 
+        // Should be the author's User ID
         type: Schema.Types.ObjectId, 
         ref: 'User' 
     },
