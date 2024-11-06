@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const User = require('./User');
 const dateFormat = require('../utils/dateFormat');
 
 /* Schema embedded in User to represent each Profile's comments */
@@ -24,6 +23,4 @@ const commentSchema = new Schema({
     }
 });
 
-const User = mongoose.model('Comment', commentSchema);
-
-module.exports = User;
+module.exports = commentSchema;
