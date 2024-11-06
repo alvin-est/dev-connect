@@ -1,6 +1,11 @@
+// Import Express Router
 const router = require('express').Router();
 
+// Import authentication handler
+const auth = require('../middlewares/authMiddleware');
+
 // Import route handler logic from controllers
+const { login } = require('../controllers/authController');
 const { 
     createUser, 
     getUser, 
@@ -11,10 +16,13 @@ const {
 } = require('../../controllers/userController');
 
 // GET, POST, PUT, DELETE routes for /api/users endpoint
-router.route('/').get(getAllUsers).post(createUser);
-router.route('/:user_id').get(getUser).put(updateUser).delete(deleteUser);
+router.route('/').get(auth, getAllUsers).post(createUser);
+router.route('/:userId').get(auth, getUser).put(auth, updateUser).delete(auth, deleteUser);
 
 // Friend routes
-router.route('/:user_id/friends/:friend_id').post(addFriend);
+router.route('/:userId/friends/:friendId').post(addFriend);
+
+// Auth routes
+router.route('/login').post(login);
 
 module.exports = router;

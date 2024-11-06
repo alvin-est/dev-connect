@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 const commentSchema = require('./Comment');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const UserSchema = new Schema({
   name: [{
@@ -52,6 +54,12 @@ next();
 /* Method to validate user password */
 UserSchema.methods.isCorrectPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
+};
+
+/* Method to generate JWT */
+UserSchema.methods.generateAuthToken = async function() {
+  const token = jwt.sign({ _id: this._id.toString() }, process.env.JWT_SECRET, { expiresIn: '7 days' });
+  return token;
 };
 
 const User = mongoose.model('User', UserSchema);
