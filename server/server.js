@@ -9,21 +9,20 @@ const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 
-
-
-/* Express Routes and Middleware */
-const routes = require('./routes');
 const app = express();
 
-// Middleware
-app.use(express.json({extended: true }));
-app.use(express.urlencoded({ extended: true }));
+// /* Express Routes and Middleware (RESTful API) */
+// const routes = require('./routes');
 
-// Routes
-app.use(routes);
+// // Middleware
+// app.use(express.json({extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 
-// Start Express server
-app.listen(3000, () => console.log('Server started on port 3000'));
+// // Routes
+// app.use(routes);
+
+// // Start Express server
+// app.listen(3000, () => console.log('Server started on port 3000'));
 
 
 
