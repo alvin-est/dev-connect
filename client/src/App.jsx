@@ -22,9 +22,9 @@ function App() {
            <Header/>
 
             {/* Main Content */}
-           {/* <Homepage /> {/* Replaced UserProfile with Homepage */}
+           <Homepage /> {/* Replaced UserProfile with Homepage*/}
 
-            <UserProfile /> {/* Render UserProfile here */}
+            {/* <UserProfile /> Render UserProfile here */}
       < Footer/>
         </div>
     );
