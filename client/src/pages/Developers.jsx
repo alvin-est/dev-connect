@@ -1,12 +1,12 @@
+// src/pages/Developers.jsx
 import { useState } from 'react';
 
-// Image Icon Component for Search and Location
 const SearchIcon = () => (
-  <img src="./assets/camera.png"  alt="Search" className="w-5 h-5" />
+  <img src="/assets/camera.png" alt="Search" className="w-5 h-5" />
 );
 
 const LocationIcon = () => (
-  <img src="./assets/camera.png" alt="Location" className="w-4 h-4" />
+  <img src="/assets/camera.png" alt="Location" className="w-4 h-4" />
 );
 
 export default function Developers({ onSelectDeveloper }) {
@@ -18,36 +18,11 @@ export default function Developers({ onSelectDeveloper }) {
       role: 'Full Stack Developer',
       location: 'San Francisco, CA',
       skills: ['React', 'Node.js', 'MongoDB'],
-      image: "./assets/camera.png" ,
+      image: "/assets/camera.png",
     },
-    {
-      id: 2,
-      name: 'Jane Smith',
-      role: 'Frontend Developer',
-      location: 'New York, NY',
-      skills: ['React', 'TypeScript', 'Tailwind'],
-      image: "./assets/camera.png" ,
-    },
-    {
-      id: 3,
-      name: 'Mike Johnson',
-      role: 'Backend Developer',
-      location: 'Seattle, WA',
-      skills: ['Python', 'Django', 'PostgreSQL'],
-      image: '/images/developer3.jpg',
-    },
-    {
-      id: 4,
-      name: 'Sarah Williams',
-      role: 'UI/UX Developer',
-      location: 'Austin, TX',
-      skills: ['React', 'Figma', 'CSS'],
-      image: '/images/developer4.jpg',
-    },
-  
+    // Add other developers...
   ]);
 
-  // Handle filtering developers based on search term
   const filteredDevelopers = developers.filter((dev) => {
     const lowercasedSearchTerm = searchTerm.toLowerCase();
     return (
@@ -58,8 +33,8 @@ export default function Developers({ onSelectDeveloper }) {
   });
 
   const handleDeveloperClick = (developerId) => {
-    if (onSelectDeveloper) {
-      onSelectDeveloper(developerId);
+    if (typeof onSelectDeveloper === 'function') {
+      onSelectDeveloper(developerId); // Only call if onSelectDeveloper is provided
     } else {
       window.location.href = `/profile/${developerId}`;
     }
@@ -80,7 +55,6 @@ export default function Developers({ onSelectDeveloper }) {
           />
         </div>
       </div>
-
       <div className="flex flex-wrap gap-6">
         {filteredDevelopers.length > 0 ? (
           filteredDevelopers.map((dev) => (

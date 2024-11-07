@@ -1,23 +1,24 @@
+// src/main.jsx
 import ReactDOM from 'react-dom/client';
 import React from 'react';
 import App from './App.jsx';
 import './index.css'
 
-// Bringing in the required imports from 'react-router-dom' to set up application routing behavior
+// Import `react-router-dom` components for routing
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-// import Error from './pages/ErrorPage';
+// Uncomment Error component import for handling errors in routing
+import Error from './pages/ErrorPage';
 import Home from './pages/Homepage';
 import Profile from './pages/UserProfile';
 import Developer from './pages/Developers';
 
-
-// Define the accessible routes, and which components respond to which URL
+// Define the router and specify routes
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <Error />,
+    errorElement: <Error />, // Specify error element to handle route errors
     children: [
       { index: true, element: <Home />},
       { path: '/home', element: <Home />}, 
@@ -30,5 +31,3 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
 );
-
-  
