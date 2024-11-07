@@ -1,6 +1,3 @@
-import { useLocation } from 'react-router-dom';
-import './index.css';
-
 function Footer() {
   const currentPage = useLocation().pathname;
 

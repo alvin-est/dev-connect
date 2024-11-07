@@ -1,7 +1,3 @@
-import { Link, useLocation } from 'react-router-dom';
-import './../assets/css/Header.css';
-
-
 function Header() {
   const currentPage = useLocation().pathname;
 
@@ -17,6 +13,9 @@ function Header() {
     />
     <h1 className="text-lg font-semibold text-gray-800 dark:text-white">DevDeploy</h1>
 </div>
+<nav>
+ {/* TODO: create a search bar to search for Developers */}
+</nav>
 <button
     onClick={toggleTheme}
     className="custom-theme-toggle border p-2 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600"
