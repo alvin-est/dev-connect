@@ -2,11 +2,8 @@
 // src/App.jsx
 import React, { useState } from 'react';
 import './index.css';
-import Header from './src/components/Header.jsx';
-import Footer from './src/components/Footer.jsx';
-import Homepage from './pages/Homepage.jsx';
-import UserProfile from './pages/UserProfile.jsx';
-import Developers from './pages/Developers.jsx';
+import { Header, Footer } from './components';
+import {Homepage, UserProfile, Developers} from './pages';
 import { Outlet } from 'react-router-dom';
 
 function App() {
