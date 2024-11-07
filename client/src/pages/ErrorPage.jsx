@@ -1,9 +1,11 @@
 import React from 'react';
 
+/* Error page */
 const ErrorPage = () => {
-  return (
-    <p>Error!</p>
-  );
+    /* Render HTML on return below: */
+    return (
+        <p>Error!</p>
+    );
 };
 
 export default ErrorPage;
