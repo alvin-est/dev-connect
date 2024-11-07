@@ -7,8 +7,6 @@ import './index.css'
 // Bringing in the required imports from 'react-router-dom' to set up application routing behavior
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-// Import pages
-import App from './App';
 // import Error from './pages/ErrorPage';
 import Home from './pages/Homepage';
 import Profile from './pages/UserProfile';
@@ -23,8 +21,9 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { index: true, element: <Home />},
-      { path: "profile", element: <Profile />},
-      { path: "developer", element: <Developers />},
+      { path: '/home', element: <Home />},
+      { path: '/profile', element: <Profile />},
+      { path: '/developer', element: <Developer />},
     ],
   },
 ]);
