@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import './index.css';
 import Homepage from './pages/Homepage.jsx';
 import UserProfile from './pages/UserProfile.jsx';
-import Developers from './components/Developers.jsx';
+import Developers from './pages/Developers.jsx';
 
 function App() {
     const [isDarkMode, setIsDarkMode] = useState(false);
