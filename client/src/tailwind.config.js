@@ -3,9 +3,10 @@ const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: [
-    './src/**/*.{js,jsx,ts,tsx}', // Adjust the path to match your project structure
-    './public/index.html',
+    './src/**/*.{js,jsx,ts,tsx}',
+    './public/index.html', // Include HTML if used in public folder
   ],
+  darkMode: 'class', // Enable dark mode with the class strategy
   theme: {
     extend: {
       colors: {
@@ -14,6 +15,7 @@ module.exports = {
         primary: '#127ef3',
         secondary: '#f7926e',
         accent: '#d4f551',
+        darkBackground: '#0d1117', // Optional color for dark mode backgrounds
       },
       fontSize: {
         sm: '0.750rem',
@@ -36,5 +38,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/forms'), // Adds form styling utilities
+    require('@tailwindcss/typography'), // Rich typography styles
   ],
 };
