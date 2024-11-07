@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import './index.css';
 //import Homepage from './components/Homepage.jsx';
-import UserProfile from './components/UserProfile.jsx';
+import UserProfile from './pages/UserProfile.jsx';
 //import Developers from './components/Developers.jsx';
 
 function App() {
