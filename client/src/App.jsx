@@ -2,9 +2,9 @@
 // src/App.jsx
 import React, { useState } from 'react';
 import './index.css';
-//import Homepage from './components/Homepage.jsx';
+import Homepage from './components/Homepage.jsx';
 import UserProfile from './pages/UserProfile.jsx';
-//import Developers from './components/Developers.jsx';
+import Developers from './components/Developers.jsx';
 
 function App() {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -36,8 +36,9 @@ function App() {
             </header>
 
             {/* Main Content */}
-           {/* <Homepage /> {/* Replaced UserProfile with Homepage */}
+           <Homepage /> {/* Replaced UserProfile with Homepage */}
             <UserProfile /> {/* Render UserProfile here */}
+            <Developers /> {/* Render Developers here */}
 
             {/* Footer */}
             <footer className="custom-footer p-4 text-center w-full border-t bg-white shadow-md dark:bg-gray-800">
