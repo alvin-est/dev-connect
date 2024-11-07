@@ -1,10 +1,10 @@
 import Navigation from './Navigation';
 
-function Header() {
+const Header = () => {
   return (
-    <header className="bg-blue-600 text-white shadow-lg">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <div className="text-2xl font-bold"><h1>Header</h1></div>
+    <header className="header bg-white dark:bg-gray-800 text-white shadow">
+      <div className="container mx-auto px-4 py-6 flex justify-between items-center">
+        <div className="text-lg font-bold"><h1>Header</h1></div>
         <Navigation />
       </div>
     </header>

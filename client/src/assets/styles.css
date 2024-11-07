@@ -1,0 +1,82 @@
+/* Import Tailwind's base styles, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Base Styles */
+@layer base {
+  /* Global styles for elements */
+  h1 {
+    @apply text-3xl font-bold;
+  }
+  h2 {
+    @apply text-2xl font-bold;
+  }
+  h3 {
+    @apply text-xl font-semibold;
+  }
+  p {
+    @apply text-lg;
+  }
+  a {
+    @apply text-blue-500 hover:underline;
+  }
+  /* Reset styles if needed */
+  body {
+    @apply text-gray-800 bg-white;
+  }
+}
+
+/* Custom Components */
+@layer components {
+  /* Button component */
+  .btn {
+    @apply px-4 py-2 rounded shadow font-semibold;
+  }
+  .btn-primary {
+    @apply bg-blue-500 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50;
+  }
+  .btn-secondary {
+    @apply bg-gray-500 text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50;
+  }
+
+  /* Card component */
+  .card {
+    @apply bg-white rounded overflow-hidden shadow-lg p-6;
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  /* Custom width utility */
+  .w-72 {
+    width: 18rem;
+  }
+  
+  /* Custom height utility */
+  .h-48 {
+    height: 12rem;
+  }
+  
+  /* Custom transition utility */
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  /* Responsive utility for space between elements */
+  @variants responsive {
+    .space-y-2 {
+      > * + * {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}
+
+/* Extra styles that don't fit into Tailwind's layers or need to always be included */
+.custom-style {
+  color: #333;
+  font-size: 16px;
+}

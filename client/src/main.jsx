@@ -1,10 +1,12 @@
+import React from 'react';
 import ReactDOM from 'react-dom/client'
 
 // Bringing in the required imports from 'react-router-dom' to set up application routing behavior
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Import styles
-import './index.css'
+// import './output.css'
+import './assets/styles.css'
 
 // Import pages
 import App from './App';
