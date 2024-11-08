@@ -1,19 +1,16 @@
-import { useLocation } from 'react-router-dom';
-
-function Footer() {
-  const currentPage = useLocation().pathname;
-
+const Footer = () => {
   return (
-    <footer className="custom-footer p-4 text-center w-full border-t bg-white shadow-md dark:bg-gray-800">
-    <p className="text-gray-600 dark:text-gray-300">
-        &copy; 2024
-        <a href="https://github.com/alvin-est" target="_blank" className="text-blue-500 hover:underline"> Alvin</a>,
-        <a href="https://github.com/cameron-profile" target="_blank" className="text-blue-500 hover:underline"> Cameron</a>,
-        <a href="https://github.com/tanaika-profile" target="_blank" className="text-blue-500 hover:underline"> Tanaika</a> &amp;
-        <a href="https://github.com/KateHanSta17" target="_blank" className="text-blue-500 hover:underline"> Kate</a>
-    </p>
-</footer>
-     
+    <footer className="bg-gray-800 text-white py-6">
+      <div className="container mx-auto px-4 flex flex-wrap justify-between items-center">
+        <p className="text-sm mb-4 md:mb-0">&copy; 2023 Brand Name. All rights reserved.</p>
+        <nav>
+          <ul className="flex space-x-6">
+            <li><a href="#" className="hover:underline">Privacy Policy</a></li>
+            <li><a href="#" className="hover:underline">Terms of Service</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
   );
 }
 

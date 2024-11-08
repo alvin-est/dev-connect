@@ -1,7 +1,10 @@
 import React from 'react';
 
+/* Homepage */
 const Homepage = () => {
+  /* Render HTML on return below: */
   return (
+  <main>
     <div className="flex min-h-screen bg-gray-50 font-sans justify-center">
       {/* Left Section - App Name and Description */}
       <div className="flex flex-col justify-center items-center w-full md:w-1/2 bg-white shadow-md p-10">
@@ -30,6 +33,7 @@ const Homepage = () => {
            }}>
       </div>
     </div>
+  </main>
   );
 };
 

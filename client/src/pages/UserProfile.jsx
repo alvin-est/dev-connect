@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-export default function UserProfile() {
+/* Profile page */
+const UserProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState({
     name: 'Sam Doe',
@@ -32,7 +33,9 @@ export default function UserProfile() {
     // Save profile data to server or localStorage here.
   };
 
-  return (
+  /* Render HTML on return below: */
+  return(
+  <main>
     <div className="max-w-4xl mx-auto p-8 relative">
       {/* Profile Header */}
       <div className="relative bg-white rounded-lg shadow-md p-8 mb-8">
@@ -132,5 +135,8 @@ export default function UserProfile() {
         </button>
       </div>
     </div>
+  </main>
   );
 }
+
+export default UserProfile;
