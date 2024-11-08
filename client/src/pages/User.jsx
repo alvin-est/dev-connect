@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
 /* Profile page */
-const UserProfile = () => {
+const User = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newProject, setNewProject] = useState({ title: '', description: '', link: '' });
   
   const [profile, setProfile] = useState({
-    name: 'Sam Doe',
-    role: 'Full Stack Developer',
+    name: 'Emily Chen',
+    role: 'Data Scientist',
     location: 'Sydney, AU',
     about: 'Passionate developer with 2 years of experience in web development.',
     skills: '',
     github: 'https://github.com/johndoe',
-    website: "./src/assets/Sam.pdf",
-    profileImage: './src/assets/user.JPG',
+    website: 'https://johndoe.dev',
+    profileImage: './src/assets/emily.png',
     projects: [
       {
         title: 'E-commerce Platform',
@@ -234,4 +234,4 @@ const UserProfile = () => {
   );
 }
 
-export default UserProfile;
+export default User;
