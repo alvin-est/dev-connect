@@ -15,7 +15,7 @@ const Navigation = () => {
           <NavLink
             exact
             to="/"
-            className="font-body text-white hover:text-accent-500 transition duration-200"
+            className="font-body text-white hover:text-[#C4E736] transition duration-200 underline-offset-4 hover:underline"
           >
             Home
           </NavLink>
@@ -26,7 +26,7 @@ const Navigation = () => {
           <NavLink
             exact
             to="/developers"
-            className="font-body text-white hover:text-accent-500 transition duration-200"
+            className="font-body text-white hover:text-[#C4E736] transition duration-200 underline-offset-4 hover:underline"
           >
             Developers
           </NavLink>
@@ -37,7 +37,7 @@ const Navigation = () => {
           <NavLink
             exact
             to="/profile"
-            className="font-body text-white hover:text-accent-500 transition duration-200"
+            className="font-body text-white hover:text-[#C4E736] transition duration-200 underline-offset-4 hover:underline"
           >
             Profile
           </NavLink>
@@ -48,3 +48,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
