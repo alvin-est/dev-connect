@@ -7,14 +7,18 @@ import Login from './components/Login';
 function App() {
     return (
         <>
+        <div className="flex flex-col min-h-screen">
           {/* Header */}
           <Header />
           
           {/* Main */}
+          <main className="flex-grow">
             <Outlet />
+            </main>
     
           {/* Footer */}
           <Footer />
+          </div>
         </>
     );
 }

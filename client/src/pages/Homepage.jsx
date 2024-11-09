@@ -1,26 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
+import React from "react";
+import { Link } from "react-router-dom";
 
-/* Homepage */
 const Homepage = () => {
   return (
-    <main>
+    <div className="flex flex-col min-h-screen">
       {/* Main body container */}
-      <div className="flex h-[80vh] bg-gray-50 font-body">
+      <div className="flex-grow flex bg-gray-50 font-body">
         {/* Left Section - App Name and Description */}
-        <div className="flex flex-col justify-center items-center w-full md:w-1/2 bg-white shadow-md py-10 max-h-[85vh] overflow-y-auto">
+        <div className="flex flex-col justify-center items-center w-full md:w-1/2 bg-white shadow-md py-10">
           {/* Logo */}
           <img
             src="/assets/devdeploy_var_logo_white_bg.jpg"
             alt="DevDeploy Logo"
-            className="w-40 h-40 object-contain mt-6 mb-2" // Adjusted size and spacing
+            className="w-40 h-40 object-contain mt-6 mb-2"
           />
 
           {/* Heading */}
           <h1
             className="text-4xl font-heading text-[#3F94EE] mb-2"
             style={{
-              textShadow: '2px 2px 6px rgba(0, 0, 0, 0.5)', // Stronger drop shadow
+              textShadow: "2px 2px 6px rgba(0, 0, 0, 0.5)", // Stronger drop shadow
             }}
           >
             DevDeploy!
@@ -28,7 +27,8 @@ const Homepage = () => {
 
           {/* Paragraph */}
           <p className="text-lg text-gray-600 text-center mb-2 px-6 max-w-2xl">
-            A platform for junior developers to showcase their skills and connect with businesses for project-based opportunities.
+            A platform for junior developers to showcase their skills and
+            connect with businesses for project-based opportunities.
           </p>
 
           {/* Sign Up and Login Buttons */}
@@ -52,15 +52,15 @@ const Homepage = () => {
 
         {/* Right Section - Background Image */}
         <div
-          className="hidden md:flex w-1/2 bg-cover bg-center max-h-[85vh]"
+          className="hidden md:flex w-1/2 bg-cover bg-center"
           style={{
             backgroundImage: `url('/assets/wallpaper_homepage.jpg')`,
-            backgroundSize: 'cover', // Ensure the image fills the container
-            backgroundPosition: 'center', // Center the image
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         ></div>
       </div>
-    </main>
+    </div>
   );
 };
 
