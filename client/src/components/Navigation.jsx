@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
-  /* Some helper code */
+  /* Helper code to dynamically determine the active link if needed */
   // const currentPage = useLocation().pathname; // Find the current page URL
   // const activeLink = (path) => {
   //   return currentPage === path ? 'nav-link nav-active' : 'nav-link';
@@ -10,12 +10,41 @@ const Navigation = () => {
   return (
     <nav>
       <ul className="flex space-x-6">
-        <li><NavLink exact to="/" className="hover:underline">Home</NavLink></li>
-        <li><NavLink exact to="/developers" className="hover:underline">Developers</NavLink></li>
-        <li><NavLink exact to="/profile" className="hover:underline">Profile</NavLink></li>
+        {/* Home link */}
+        <li>
+          <NavLink
+            exact
+            to="/"
+            className="font-body text-white hover:text-accent-500 transition duration-200"
+          >
+            Home
+          </NavLink>
+        </li>
+
+        {/* Developers link */}
+        <li>
+          <NavLink
+            exact
+            to="/developers"
+            className="font-body text-white hover:text-accent-500 transition duration-200"
+          >
+            Developers
+          </NavLink>
+        </li>
+
+        {/* Profile link */}
+        <li>
+          <NavLink
+            exact
+            to="/profile"
+            className="font-body text-white hover:text-accent-500 transition duration-200"
+          >
+            Profile
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
-}
+};
 
 export default Navigation;

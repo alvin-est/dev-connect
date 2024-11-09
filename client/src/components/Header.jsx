@@ -2,13 +2,13 @@ import Navigation from './Navigation';
 
 const Header = () => {
   return (
-    <header className="header bg-gray-800 text-white shadow">
+    <header className="header bg-[#042d62] text-white shadow">
       <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-      <div className="text-lg font-bold"><h1>DevDeploy</h1></div>
+        <h1 className="font-heading text-primary-500">DevDeploy!</h1>
         <Navigation />
       </div>
     </header>
   );
-}
+};
 
 export default Header;
