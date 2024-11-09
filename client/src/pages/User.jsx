@@ -7,14 +7,14 @@ const User = () => {
   const [newProject, setNewProject] = useState({ title: '', description: '', link: '' });
   
   const [profile, setProfile] = useState({
-    name: 'Emily Chen',
+    name: 'Tinaika Pereira',
     role: 'Data Scientist',
-    location: 'Sydney, AU',
-    about: 'Passionate developer with 2 years of experience in web development.',
+    location: 'Melbourne, AU',
+    about: 'Data Scientist with 2 years of experience in web development.',
     skills: '',
     github: 'https://github.com/johndoe',
     website: 'https://johndoe.dev',
-    profileImage: './src/assets/emily.png',
+    profileImage: './src/assets/tinaika_pereira.jpeg',
     projects: [
       {
         title: 'E-commerce Platform',
