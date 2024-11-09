@@ -4,9 +4,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 flex flex-wrap justify-between items-center">
         {/* Logo Section */}
         <div className="flex items-center">
-          <img
-            src="client/src/assets/devdeploy_logo_footer.jpg"
-            alt="DevDeploy Logo"
+        <img src="/assets/devdeploy_logo_footer.jpg" alt="DevDeploy Logo"
             className="h-12 w-12 object-contain mr-4" // Adjust the size with `h-12` and `w-12`
           />
           <p className="text-sm">&copy; 2024 DevDeploy! All rights reserved.</p>
