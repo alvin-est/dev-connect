@@ -6,12 +6,12 @@ const Homepage = () => {
     <main>
       <div className="flex h-screen bg-gray-50 font-body">
         {/* Left Section - App Name and Description */}
-        <div className="flex flex-col justify-between items-center w-full md:w-1/2 bg-white shadow-md py-10">
+        <div className="flex flex-col justify-center items-center w-full md:w-1/2 bg-white shadow-md py-10">
           {/* Logo */}
           <img
             src="/assets/devdeploy_var_logo_white_bg.jpg"
             alt="DevDeploy Logo"
-            className="w-20 h-20 object-contain mb-4" // Adjusted size and spacing
+            className="w-16 h-16 object-contain mb-4" // Adjusted size and spacing
           />
 
           {/* Heading */}
@@ -30,7 +30,7 @@ const Homepage = () => {
           </p>
 
           {/* Sign Up and Login Buttons */}
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 mt-4">
             {/* Login Button */}
             <a
               href="#"
@@ -54,8 +54,7 @@ const Homepage = () => {
           style={{
             backgroundImage: `url('/assets/wallpaper_homepage.jpg')`,
             backgroundSize: 'cover', // Ensure the image fills the container
-            backgroundPosition: 'center top', // Crop from the top for a better fit
-            height: '100%', // Ensure it matches the left container height
+            backgroundPosition: 'center', // Center the image
           }}
         ></div>
       </div>
