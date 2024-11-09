@@ -1,46 +1,35 @@
-const { User, Comment } = require('../models');
-const { signToken, AuthenticationError } = require('../utils/auth');
-// const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const { User } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    // // get all users
-    // users: async () => {
-    //   return User.find();
-    // },
-    // get a user by username
-    user: async (parent, { id }) => {
-      return User.findOne({ _id: id });
-    },
-    // get comment by id
-    comment: async (parent, { id }) => {
-      return Comment.findOne({ _id: id });
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return await User.findById(context.user._id);
+      }
+      throw new Error('Not authenticated');
     }
   },
   Mutation: {
-    // create a new user
-    addUser: async (parent, args) => {
-      const user = await User.create(args);
-      const token = signToken(user);
-      return { token, user };
-    },
-    // login a user
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-
       if (!user) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new Error('User not found');
       }
 
-      const correctPw = await user.isCorrectPassword(password);
-
-      if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+      const correctPassword = await user.isCorrectPassword(password);
+      if (!correctPassword) {
+        throw new Error('Incorrect password');
       }
-
       const token = signToken(user);
       return { token, user };
     },
+
+    addUser: async (parent, { name, email, password }) => {
+      const user = await User.create({ name, email, password });
+      const token = signToken(user);
+      return { token, user };
+    }
   }
 };
 
