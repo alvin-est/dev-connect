@@ -1,21 +1,41 @@
-import { useLocation } from 'react-router-dom';
-import './index.css';
-
-function Footer() {
-  const currentPage = useLocation().pathname;
-
+const Footer = () => {
   return (
-    <footer className="custom-footer p-4 text-center w-full border-t bg-white shadow-md dark:bg-gray-800">
-    <p className="text-gray-600 dark:text-gray-300">
-        &copy; 2024
-        <a href="https://github.com/alvin-est" target="_blank" className="text-blue-500 hover:underline"> Alvin</a>,
-        <a href="https://github.com/cameron-profile" target="_blank" className="text-blue-500 hover:underline"> Cameron</a>,
-        <a href="https://github.com/tanaika-profile" target="_blank" className="text-blue-500 hover:underline"> Tanaika</a> &amp;
-        <a href="https://github.com/KateHanSta17" target="_blank" className="text-blue-500 hover:underline"> Kate</a>
-    </p>
-</footer>
-     
+    <footer className="bg-[#042d62] text-white py-6 mt-auto">
+      <div className="container mx-auto px-10 flex flex-wrap justify-between items-center">
+        {/* Logo Section */}
+        <div className="flex items-center">
+          <img
+            src="/assets/devdeploy_logo_footer.jpg"
+            alt="DevDeploy Logo"
+            className="h-12 w-12 object-contain mr-4"
+          />
+          <p className="text-sm">&copy; 2024 DevDeploy! All rights reserved.</p>
+        </div>
+
+        {/* Footer navigation links */}
+        <nav>
+          <ul className="flex space-x-6">
+            <li>
+              <a
+                href="#"
+                className="font-body text-white hover:text-accent-500 transition duration-200"
+              >
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="font-body text-white hover:text-accent-500 transition duration-200"
+              >
+                Terms of Service
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
   );
-}
+};
 
 export default Footer;
