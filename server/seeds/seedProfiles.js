@@ -79,6 +79,14 @@ const profiles = [
         skills: ['HTML', 'CSS', 'JavaScript', 'Node.js'],
         image: './public/assets/benjamin_rice.jpeg',
       },
+      {
+        id: 11,
+        name: 'Sam Doe',
+        role: 'Fullstack Developer',
+        location: 'Sydney, AU',
+        skills: ['HTML', 'CSS', 'JavaScript', 'Node.js'],
+        image: './public/assets/user.JPG',
+      },
   ];
   
   module.exports = profiles; // Export the profiles array

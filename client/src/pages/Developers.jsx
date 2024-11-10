@@ -84,6 +84,14 @@ const Developers = ({ onSelectDeveloper }) => {
       skills: ['Agile', 'Scrum', 'Product Development', 'User Stories', 'Roadmapping'],
       image: './src/assets/wendy_xiao.jpeg',
     },
+    {
+      id: 11,  // Ensure the ID is unique
+      name: 'Sam Doe',
+      role: 'Full Stack Developer',
+      location: 'Sydney, AU',
+      skills: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Node.js'],
+      image: './src/assets/user.JPG',  // Replace with Sam Doe's profile image path
+    },
   ]);
 
   // Handle filtering developers based on search term
@@ -97,8 +105,8 @@ const Developers = ({ onSelectDeveloper }) => {
   });
 
   const handleDeveloperClick = (developerId) => {
-    if (onSelectDeveloper) {
-      onSelectDeveloper(developerId);
+    if (developerId === 11) {
+      window.location.href = `/profile/${developerId}?viewMode=true`;
     } else {
       window.location.href = `/profile/${developerId}`;
     }
