@@ -13,7 +13,7 @@ const UserProfile = () => {
     about: 'Passionate developer with 2 years of experience in web development.',
     skills: '',
     github: 'https://github.com/johndoe',
-    website: "./src/assets/Sam.pdf",
+    resume: './src/assets/resume.JPG',
     profileImage: './src/assets/user.JPG',
     projects: [
       {
@@ -83,13 +83,7 @@ const UserProfile = () => {
             />
           </div>
 
-          {/* Edit Profile Button */}
-          <button 
-            onClick={() => setIsEditing(!isEditing)}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full shadow-md"
-          >
-            Edit Profile
-          </button>
+         
 
           {/* Profile Details */}
           <div className="mt-4">
@@ -107,7 +101,7 @@ const UserProfile = () => {
                 GitHub Profile
               </a>
               <a 
-                href={profile.website} 
+                href="./src/assets/resume.JPG" 
                 className="bg-blue-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-blue-500 transition duration-200 font-medium"
                 target="_blank" 
                 rel="noopener noreferrer"
