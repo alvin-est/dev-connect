@@ -48,7 +48,7 @@ const Developers = ({ onSelectDeveloper }) => {
       id: 6,
       name: 'Alvin Estado',
       role: 'DevOps Engineer',
-      location: 'Perth, AU',
+      location: 'Sydney, AU',
       skills: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Linux'],
       image: './src/assets/alvin_estado.jpeg',
     },
@@ -104,13 +104,15 @@ const Developers = ({ onSelectDeveloper }) => {
     );
   });
 
-  const handleDeveloperClick = (developerId) => {
-    if (developerId === 11) {
-      window.location.href = `/profile/${developerId}?viewMode=true`;
-    } else {
-      window.location.href = `/profile/${developerId}`;
-    }
-  };
+// Developers.jsx
+
+const handleDeveloperClick = (developerId) => {
+  if (developerId === 11) { // Check for Sam Doe's ID
+    window.location.href = `/profile/${developerId}?viewMode=true`; // Redirect with viewMode=true for Sam Doe
+  } else {
+    window.location.href = `/profile/${developerId}`; // Redirect to other profiles without viewMode
+  }
+};
 
   /* Render HTML on return below: */
   return (
