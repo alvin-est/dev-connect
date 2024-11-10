@@ -1,7 +1,51 @@
-import React from "react";
+
+import React, { useState } from "react";
+import { useMutation, gql } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
+
+import { LOGIN_USER } from "../utils/mutations";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const navigate = useNavigate();
+  
+  const [login, { loading, error }] = useMutation(LOGIN_USER, {
+    onCompleted({ login }) {
+      if (login.token) {
+        // Store the token in localStorage or a global state management solution
+        localStorage.setItem('token', login.token);
+        // navigate('/dashboard'); // Redirect to dashboard or home page
+        alert('Login successful!');
+      }
+    },
+    onError(error) {
+      console.error('Login error:', error);
+      // Display an error message to the user
+      alert('Login unsuccessful. Please try again.');
+    }
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    try {
+      login({ variables: formState });
+    }
+    catch (e) {
+      console.error(e);
+    }
+  };
+
+  
+
   return (
     <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 bg-[#F9FAFB]">
       {/* Body Section */}
@@ -41,7 +85,7 @@ const Login = () => {
 
       {/* Form Section */}
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form action="#" method="POST" className="space-y-6">
+        <form onSubmit={handleFormSubmit} className="space-y-6">
           {/* Email Field */}
           <div>
             <label
@@ -55,8 +99,9 @@ const Login = () => {
                 id="email"
                 name="email"
                 type="email"
+                onChange={handleChange}
+                value={formState.email}
                 required
-                autoComplete="email"
                 placeholder="you@example.com"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#3F94EE] sm:text-sm"
               />
@@ -76,8 +121,9 @@ const Login = () => {
                 id="password"
                 name="password"
                 type="password"
-                required
-                autoComplete="current-password"
+                required 
+                onChange={handleChange} 
+                value={formState.password} 
                 placeholder="********"
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#3F94EE] sm:text-sm"
               />
@@ -88,11 +134,12 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-[#C4E736] px-3 py-1.5 text-sm font-semibold text-black shadow-sm hover:bg-[#3F94EE] hover:text-white transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C4E736]"
-            >
-              Sign In
+              disabled={loading}
+              className="flex w-full justify-center rounded-md bg-[#C4E736] px-3 py-1.5 text-sm font-semibold text-black shadow-sm hover:bg-[#3F94EE] hover:text-white transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C4E736]">
+              {loading ? 'Logging in...' : 'Sign In'}
             </button>
           </div>
+          {error && <p className="text-red-500">{error.message}</p>}
         </form>
 
         {/* Register Redirect */}

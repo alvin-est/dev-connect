@@ -1,33 +1,38 @@
 const express = require('express');
+const path = require('path');
+const db = require('./config/connection');
+// require('dotenv').config();
+
+/* GraphQL neccessary imports */
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
-const path = require('path');
+const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
 
-const { typeDefs, resolvers } = require('./schemas');
-const db = require('./config/connection');
-
+/* Start our Express server */
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+/* Apollo Server setup for GraphQL */
 const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
 
-// Create a new instance of an Apollo server with the GraphQL schema
-const startApolloServer = async () => {
+/* Instantiate Apollo  */
+const startApollo = async () => {
   await server.start();
 
-  app.use(express.urlencoded({ extended: false }));
+  /* Express Middleware for parsing JSON */
+  app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
 
-  // Serve up static assets
-  app.use('/images', express.static(path.join(__dirname, '../client/images')));
-
+  // Set up endpoint: apply Apollo to Express as middleware
   app.use('/graphql', expressMiddleware(server, {
     context: authMiddleware
   }));
 
+  /* Serve static files in production */
   if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/dist')));
 
@@ -36,6 +41,7 @@ const startApolloServer = async () => {
     });
   }
 
+  /* Connect to MongoDB database */
   db.once('open', () => {
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
@@ -44,5 +50,5 @@ const startApolloServer = async () => {
   });
 };
 
-// Call the async function to start the server
-startApolloServer();
+/* Start Apollo Server */
+startApollo();

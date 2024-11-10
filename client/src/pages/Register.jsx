@@ -1,5 +1,11 @@
 import React, { useState } from "react";
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations'; // You'll need to create this file with the mutation definition
+
+import AuthService from '../utils/auth';
+
 import { Link } from "react-router-dom"; // Import for navigation
+
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +16,9 @@ const Registration = () => {
   });
   const [errorMessage, setErrorMessage] = useState("");
 
+  // Use mutation for adding a new user
+  const [addUser, { error }] = useMutation(ADD_USER);
+
   // Handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -17,8 +26,11 @@ const Registration = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    console.log(`Hit onsubmit`);
+
 
     // Password validation
     if (formData.password !== formData.confirmPassword) {
@@ -29,9 +41,39 @@ const Registration = () => {
     // Clear error message on successful validation
     setErrorMessage("");
 
-    console.log("Form submitted: ", formData);
-    // TODO: Add logic to send the formData to the backend
-  };
+    // Logic to send the formData to the backend
+    try {
+      console.log(`Attempting mutation`);
+
+      // Attempt to add user with GraphQL mutation
+      const { data } = await addUser({
+        variables: {
+          name: formData.name,
+          email: formData.email,
+          password: formData.password
+        }
+      });
+
+      console.log('Auth data:', data);
+
+      // Assuming the mutation returns a token, save it
+      if (data && data.addUser.token) {
+        console.log(`Saving token`);
+        AuthService.login(data.addUser.token);
+      } else {
+        setErrorMessage('Something went wrong with registration.');
+      }
+
+      // Inform user
+      alert('Registration successful!');
+    } catch (err) {
+      console.error(err);
+      setErrorMessage(err.message || 'An error occurred while registering.');
+      alert('Registration failed. Please try again.');
+      }
+    };
+    // console.log("Form submitted: ", formData);
+
 
   return (
     <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 bg-[#F9FAFB]">

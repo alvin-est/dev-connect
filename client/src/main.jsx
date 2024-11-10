@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client'
 
+
 // Bringing in the required imports from 'react-router-dom' to set up application routing behavior
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 
 // Import styles
 // import './output.css'
@@ -17,6 +19,7 @@ import Developers from './pages/Developers';
 import Login from './pages/Login';
 import Registration from './pages/Register';
 import User from './pages/User';
+/* Import more pages here */
 
 
 // Define the accessible routes, and which components respond to which URL
@@ -33,6 +36,7 @@ const router = createBrowserRouter([
       { path: "register", element: <Registration />},
       { path: "login", element: <Login />},
       { path: "user", element: <User />},
+      /* Add more pages here */
     ],
   },
 ]);
