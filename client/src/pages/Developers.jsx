@@ -48,11 +48,11 @@ const Developers = ({ onSelectDeveloper }) => {
     },
     {
       id: 6,
-      name: 'Alvin Estado',
-      role: 'DevOps Engineer',
-      location: 'Perth, AU',
-      skills: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Linux'],
-      image: './src/assets/alvin_estado.jpeg',
+      name: 'Tristan Kennedy',
+      role: 'UX/UI Developer',
+      location: 'Sydeny, AU',
+      skills: ['Figma', 'React', 'HTML', 'CSS'],
+      image: './src/assets/tristan_kennedy.jpeg',
     },
     {
       id: 3,

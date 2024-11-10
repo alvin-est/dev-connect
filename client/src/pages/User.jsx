@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-/* Profile page */
+const skillOptions = [
+  "HTML", "CSS", "JavaScript", "Python", "React.js", "Node.js", "Express.js",
+  "MongoDB", "PostgreSQL", "Git", "GitHub", "Django", "Tailwind CSS", "SASS/SCSS",
+  "Bootstrap", "TypeScript", "PHP", "Java", "SQL", "Firebase", "C#", "Jest",
+  "Docker", "MySQL", "Vue.js", "Ruby", "Ruby on Rails", "Angular",
+];
+
 const User = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,7 +17,7 @@ const User = () => {
     role: 'Data Scientist',
     location: 'Melbourne, AU',
     about: 'Data Scientist with 2 years of experience in web development.',
-    skills: '',
+    skills: [],
     github: 'https://github.com/Tinaika19',
     resume: './src/assets/resume.JPG',
     profileImage: './src/assets/tinaika_pereira.jpeg',
@@ -32,10 +38,12 @@ const User = () => {
     }
   }, []);
 
-  const handleSkillsChange = (e) => {
-    setProfile({
-      ...profile,
-      skills: e.target.value
+  const handleSkillChange = (skill) => {
+    setProfile((prevProfile) => {
+      const newSkills = prevProfile.skills.includes(skill)
+        ? prevProfile.skills.filter((s) => s !== skill)
+        : [...prevProfile.skills, skill];
+      return { ...prevProfile, skills: newSkills };
     });
   };
 
@@ -84,14 +92,6 @@ const User = () => {
             />
           </div>
 
-          {/* Edit Profile Button */}
-          <button 
-            onClick={() => setIsEditing(!isEditing)}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full shadow-md"
-          >
-            Edit Profile
-          </button>
-
           {/* Profile Details */}
           <div className="mt-4">
             <h1 className="text-3xl font-bold text-gray-900">{profile.name}</h1>
@@ -127,15 +127,22 @@ const User = () => {
           <p className="text-gray-600">{profile.about}</p>
         </div>
 
-        {/* Skills Section as Textarea */}
+        {/* Skills Section as Checkboxes */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           <h2 className="text-xl font-semibold mb-4">Skills</h2>
-          <textarea
-            value={profile.skills}
-            onChange={handleSkillsChange}
-            className="w-full h-24 p-4 border-2 border-gray-300 rounded-lg shadow-sm resize-none"
-            placeholder="Enter your skills here, separated by commas"
-          ></textarea>
+          <div className="grid grid-cols-2 gap-2">
+            {skillOptions.map((skill) => (
+              <label key={skill} className="flex items-center">
+                <input
+                  type="checkbox"
+                  checked={profile.skills.includes(skill)}
+                  onChange={() => handleSkillChange(skill)}
+                  className="mr-2"
+                />
+                {skill}
+              </label>
+            ))}
+          </div>
         </div>
 
         {/* Projects Section */}
@@ -143,22 +150,22 @@ const User = () => {
           <h2 className="text-xl font-semibold mb-4 flex justify-between">
             Projects
             <button 
-  onClick={() => setIsModalOpen(true)}
-  className="bg-blue-500 hover:bg-blue-700 text-white font-semibold text-sm py-0.5 px-2 rounded-md shadow-sm"
->
-  Add Project
-</button>
+              onClick={() => setIsModalOpen(true)}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-semibold text-sm py-0.5 px-2 rounded-md shadow-sm"
+            >
+              Add Project
+            </button>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {profile.projects.map((project, index) => (
               <div key={index} className="relative border rounded-lg overflow-hidden shadow-sm">
                 {/* Delete Button */}
                 <button
-  onClick={() => handleDeleteProject(index)}
-  className="absolute top-1 right-1 bg-red-500 text-white font-bold text-xs py-0.5 px-1 rounded-full hover:bg-red-700"
->
-  X
-</button>
+                  onClick={() => handleDeleteProject(index)}
+                  className="absolute top-1 right-1 bg-red-500 text-white font-bold text-xs py-0.5 px-1 rounded-full hover:bg-red-700"
+                >
+                  X
+                </button>
                 
                 {/* Project Details */}
                 <div className="p-4">
