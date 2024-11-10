@@ -2,34 +2,39 @@ import React, { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 
-const LOGIN_MUTATION = gql`
-  mutation Login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
-      user {
-        _id
-        name
-        email
-      }
-    }
-  }
-`;
+import { LOGIN_USER } from "../utils/mutations";
+
+
+// const LOGIN_MUTATION = gql`
+//   mutation Login($email: String!, $password: String!) {
+//     login(email: $email, password: $password) {
+//       token
+//       user {
+//         _id
+//         name
+//         email
+//       }
+//     }
+//   }
+// `;
 
 const Login = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const navigate = useNavigate();
   
-  const [login, { loading, error }] = useMutation(LOGIN_MUTATION, {
+  const [login, { loading, error }] = useMutation(LOGIN_USER, {
     onCompleted({ login }) {
       if (login.token) {
         // Store the token in localStorage or a global state management solution
         localStorage.setItem('token', login.token);
-        navigate('/dashboard'); // Redirect to dashboard or home page
+        // navigate('/dashboard'); // Redirect to dashboard or home page
+        alert('Login successful!');
       }
     },
     onError(error) {
       console.error('Login error:', error);
       // Display an error message to the user
+      alert('Login unsuccessful. Please try again.');
     }
   });
 
@@ -43,7 +48,12 @@ const Login = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    login({ variables: formState });
+    try {
+      login({ variables: formState });
+    }
+    catch (e) {
+      console.error(e);
+    }
   };
 
   

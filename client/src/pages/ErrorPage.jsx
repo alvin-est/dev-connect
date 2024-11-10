@@ -4,7 +4,7 @@ import React from 'react';
 const ErrorPage = () => {
     /* Render HTML on return below: */
     return (
-        <p>Error!</p>
+        <p>404 Not Found!</p>
     );
 };
 
