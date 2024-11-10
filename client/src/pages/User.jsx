@@ -12,7 +12,7 @@ const User = () => {
     location: 'Melbourne, AU',
     about: 'Data Scientist with 2 years of experience in web development.',
     skills: '',
-    github: 'https://github.com/johndoe',
+    github: 'https://github.com/Tinaika19',
     website: 'https://johndoe.dev',
     profileImage: './src/assets/tinaika_pereira.jpeg',
     projects: [

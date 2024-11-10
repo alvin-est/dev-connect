@@ -122,8 +122,9 @@ const UserProfile = () => {
               >
                 GitHub Profile
               </a>
+              
               <a 
-                href={profile.resume} 
+                href="./src/assets/resume.JPG" 
                 className="bg-blue-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-blue-500 transition duration-200 font-medium"
                 target="_blank" 
                 rel="noopener noreferrer"
