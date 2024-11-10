@@ -55,7 +55,7 @@ const UserProfile = () => {
   };
 
   return (
-    <main className="bg-[#F9FAFB] font-body min-h-screen">
+    <main className="bg-[#F9FAFB] font-body min-h-screen"> {/* Set background color and font family */}
       <div className="max-w-4xl mx-auto p-8 relative">
         {/* Profile Header */}
         <div className="bg-white rounded-lg shadow-md p-8 mb-8 text-center">
@@ -73,8 +73,8 @@ const UserProfile = () => {
             {isEditing ? 'Cancel' : 'Edit Profile'}
           </button>
           <div className="mt-4">
-            <h1 className="text-3xl font-heading text-gray-900">{profile.name}</h1>
-            <p className="text-lg text-gray-600">{profile.role}</p>
+            <h1 className="text-3xl font-heading text-gray-900">{profile.name}</h1> {/* Fira Code for heading */}
+            <p className="text-lg font-body text-gray-600">{profile.role}</p> {/* Fira Sans for body */}
             <p className="text-gray-500 mb-4">{profile.location}</p>
             <div className="flex justify-center gap-6 mt-4">
               <a
@@ -99,26 +99,26 @@ const UserProfile = () => {
 
         {/* About Section */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 className="text-xl font-semibold mb-4">About</h2>
+          <h2 className="text-xl font-heading mb-4">About</h2> {/* Fira Code for heading */}
           {isEditing ? (
             <textarea
               value={profile.about}
               onChange={(e) => setProfile({ ...profile, about: e.target.value })}
-              className="w-full h-24 p-4 border-2 border-gray-300 rounded-lg"
+              className="w-full h-24 p-4 border-2 border-gray-300 rounded-lg font-body" {/* Fira Sans */}
             ></textarea>
           ) : (
-            <p className="text-gray-600">{profile.about}</p>
+            <p className="text-gray-600 font-body">{profile.about}</p> {/* Fira Sans */}
           )}
         </div>
 
         {/* Skills Section */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 className="text-xl font-semibold mb-4">Skills</h2>
+          <h2 className="text-xl font-heading mb-4">Skills</h2> {/* Fira Code */}
           {isEditing ? (
             <textarea
               value={profile.skills.join(', ')}
               onChange={handleSkillsChange}
-              className="w-full h-24 p-4 border-2 border-gray-300 rounded-lg"
+              className="w-full h-24 p-4 border-2 border-gray-300 rounded-lg font-body" {/* Fira Sans */}
             ></textarea>
           ) : (
             <div className="flex flex-wrap gap-2">
@@ -140,7 +140,7 @@ const UserProfile = () => {
 
         {/* Projects Section */}
         <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-semibold mb-4">Projects</h2>
+          <h2 className="text-xl font-heading mb-4">Projects</h2> {/* Fira Code */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {profile.projects.map((project, index) => (
               <div key={index} className="border rounded-lg p-4 relative">
@@ -150,8 +150,8 @@ const UserProfile = () => {
                 >
                   X
                 </button>
-                <h3 className="font-semibold">{project.title}</h3>
-                <p className="text-gray-600">{project.description}</p>
+                <h3 className="font-semibold font-heading">{project.title}</h3> {/* Fira Code */}
+                <p className="text-gray-600 font-body">{project.description}</p> {/* Fira Sans */}
                 <a
                   href={project.link}
                   className="text-blue-500 hover:underline"
@@ -176,24 +176,24 @@ const UserProfile = () => {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-            <h2 className="text-xl font-bold mb-4">Add Project</h2>
+            <h2 className="text-xl font-heading mb-4">Add Project</h2> {/* Fira Code */}
             <input
               type="text"
               placeholder="Project Title"
-              className="w-full mb-2 border rounded p-2"
+              className="w-full mb-2 border rounded p-2 font-body"
               value={newProject.title}
               onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
             />
             <textarea
               placeholder="Project Description"
-              className="w-full mb-2 border rounded p-2"
+              className="w-full mb-2 border rounded p-2 font-body"
               value={newProject.description}
               onChange={(e) => setNewProject({ ...newProject, description: e.target.value })}
             ></textarea>
             <input
               type="url"
               placeholder="Project Link"
-              className="w-full mb-2 border rounded p-2"
+              className="w-full mb-2 border rounded p-2 font-body"
               value={newProject.link}
               onChange={(e) => setNewProject({ ...newProject, link: e.target.value })}
             />
@@ -219,3 +219,4 @@ const UserProfile = () => {
 };
 
 export default UserProfile;
+
