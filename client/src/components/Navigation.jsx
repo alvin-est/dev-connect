@@ -1,6 +1,7 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Navigation = () => {
+const Navigation = ({ isMobile }) => {
   /* Helper code to dynamically determine the active link if needed */
   // const currentPage = useLocation().pathname; // Find the current page URL
   // const activeLink = (path) => {
@@ -9,8 +10,14 @@ const Navigation = () => {
 
   return (
     <nav>
-      <ul className="flex space-x-6">
-        {/* Home link */}
+      <ul
+        className={`${
+          isMobile
+            ? 'flex flex-col space-y-4' // On mobile: stack links vertically with spacing
+            : 'flex space-x-6' // On desktop: align links horizontally with spacing
+        }`}
+      >
+        {/* Home Link */}
         <li>
           <NavLink
             exact
@@ -21,7 +28,7 @@ const Navigation = () => {
           </NavLink>
         </li>
 
-        {/* Developers link */}
+        {/* Developers Link */}
         <li>
           <NavLink
             exact
@@ -32,7 +39,7 @@ const Navigation = () => {
           </NavLink>
         </li>
 
-        {/* Profile link */}
+        {/* Profile Link */}
         <li>
           <NavLink
             exact
@@ -48,4 +55,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
