@@ -47,12 +47,12 @@ const Developers = ({ onSelectDeveloper }) => {
       image: "./src/assets/alex_sexwale.jpeg",
     },
     {
-      id: 2,
-      name: "Tristan Kennedy",
-      role: "Frontend Developer",
-      location: "Sydney, AU",
-      skills: ["React", "TypeScript", "Tailwind CSS"],
-      image: "./src/assets/tristan_kennedy.jpeg",
+      id: 6,
+      name: 'Alvin Estado',
+      role: 'DevOps Engineer',
+      location: 'Perth, AU',
+      skills: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Linux'],
+      image: './src/assets/alvin_estado.jpeg',
     },
     {
       id: 3,
@@ -86,6 +86,14 @@ const Developers = ({ onSelectDeveloper }) => {
       skills: ["Agile", "Scrum", "Product Development", "User Stories", "Roadmapping"],
       image: "./src/assets/wendy_xiao.jpeg",
     },
+    {
+      id: 11,  // Ensure the ID is unique
+      name: 'Sam Doe',
+      role: 'Full Stack Developer',
+      location: 'Sydney, AU',
+      skills: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Node.js'],
+      image: './src/assets/user.JPG',  // Replace with Sam Doe's profile image path
+    },
   ]);
 
   // Handle filtering developers based on search term
@@ -98,13 +106,15 @@ const Developers = ({ onSelectDeveloper }) => {
     );
   });
 
-  const handleDeveloperClick = (developerId) => {
-    if (onSelectDeveloper) {
-      onSelectDeveloper(developerId);
-    } else {
-      window.location.href = `/profile/${developerId}`;
-    }
-  };
+// Developers.jsx
+
+const handleDeveloperClick = (developerId) => {
+  if (developerId === 11) { // Check for Sam Doe's ID
+    window.location.href = `/profile/${developerId}?viewMode=true`; // Redirect with viewMode=true for Sam Doe
+  } else {
+    window.location.href = `/profile/${developerId}`; // Redirect to other profiles without viewMode
+  }
+};
 
   return (
     <main className="bg-[#F9FAFB] font-body min-h-screen"> {/* Background and font-family */}

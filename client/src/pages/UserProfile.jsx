@@ -2,15 +2,19 @@ import React, { useEffect, useState } from 'react';
 import skillColors from '../constants/skills';
 
 const UserProfile = () => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [newProject, setNewProject] = useState({ title: '', description: '', link: '' });
+  
   const [profile, setProfile] = useState({
     name: 'Alvin Estado',
     role: 'DevOps Engineer',
     location: 'Sydney, AU',
     about: 'Passionate developer with 2 years of experience in web development.',
-    skills: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Linux'],
-    github: 'https://github.com/alvin-est',
-    website: 'https://www.linkedin.com/in/alvin-estado/',
-    profileImage: './src/assets/alvin_estado.jpeg',
+    skills: '',
+    github: 'https://github.com/johndoe',
+    website: "./src/assets/Sam.pdf",
+    profileImage: './src/assets/user.JPG',
     projects: [
       {
         title: 'Student Note Taker App',
@@ -23,8 +27,47 @@ const UserProfile = () => {
   // Load profile from localStorage on component mount
   useEffect(() => {
     const storedProfile = JSON.parse(localStorage.getItem('userProfile'));
-    if (storedProfile) setProfile(storedProfile);
+    if (storedProfile) {
+      setProfile(storedProfile);
+    }
   }, []);
+
+  const handleSkillsChange = (e) => {
+    setProfile({
+      ...profile,
+      skills: e.target.value
+    });
+  };
+
+  const handleSave = () => {
+    // Save profile data to localStorage
+    localStorage.setItem('userProfile', JSON.stringify(profile));
+    setIsEditing(false);
+    console.log("Profile saved", profile);
+  };
+
+  // Handle project addition
+  const handleAddProject = () => {
+    setProfile(prevProfile => ({
+      ...prevProfile,
+      projects: [...prevProfile.projects, newProject]
+    }));
+    setNewProject({ title: '', description: '', link: '' }); // Reset form
+    setIsModalOpen(false); // Close modal
+  };
+
+  // Save updated projects list to localStorage
+  useEffect(() => {
+    localStorage.setItem('userProfile', JSON.stringify(profile));
+  }, [profile.projects]);
+
+  // Handle project deletion
+  const handleDeleteProject = (indexToDelete) => {
+    setProfile(prevProfile => ({
+      ...prevProfile,
+      projects: prevProfile.projects.filter((_, index) => index !== indexToDelete)
+    }));
+  };
 
   return (
     <main className="bg-[#F9FAFB] font-body min-h-screen">
@@ -39,6 +82,15 @@ const UserProfile = () => {
               className="w-24 h-24 rounded-full object-cover border-2 border-gray-300 shadow-sm"
             />
           </div>
+
+          {/* Edit Profile Button */}
+          <button 
+            onClick={() => setIsEditing(!isEditing)}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full shadow-md"
+          >
+            Edit Profile
+          </button>
+
           {/* Profile Details */}
           <div className="mt-4">
             <h1 className="text-3xl font-heading text-gray-900">{profile.name}</h1>
@@ -54,13 +106,14 @@ const UserProfile = () => {
               >
                 GitHub Profile
               </a>
-              <a
-                href={profile.website}
-                className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-md shadow-sm font-medium transition duration-200"
-                target="_blank"
+              <a 
+                href={profile.website} 
+                className="bg-blue-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-blue-500 transition duration-200 font-medium"
+                target="_blank" 
                 rel="noopener noreferrer"
+                download="resume.JPG"
               >
-                Resume
+                Download Resume
               </a>
             </div>
           </div>
@@ -81,44 +134,108 @@ const UserProfile = () => {
           <p className="text-gray-600 font-body">{profile.about}</p>
         </div>
 
-        {/* Skills Section */}
+        {/* Skills Section as Textarea */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-          <h2 className="text-xl font-heading mb-4">Skills</h2>
-          <div className="flex flex-wrap gap-2">
-            {profile.skills.map((skill, index) => (
-              <span
-                key={index}
-                className="px-2 py-1 rounded-full text-xs font-body"
-                style={{
-                  backgroundColor: skillColors[skill] || '#E0E0E0',
-                  color: skillColors[skill] === '#FFFFFF' ? '#000' : '#FFF',
-                }}
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
+          <h2 className="text-xl font-semibold mb-4">Skills</h2>
+          <textarea
+            value={profile.skills}
+            onChange={handleSkillsChange}
+            className="w-full h-24 p-4 border-2 border-gray-300 rounded-lg shadow-sm resize-none"
+            placeholder="Enter your skills here, separated by commas"
+          ></textarea>
         </div>
 
         {/* Projects Section */}
         <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-heading mb-4">Projects</h2>
+          <h2 className="text-xl font-semibold mb-4 flex justify-between">
+            Projects
+            <button 
+  onClick={() => setIsModalOpen(true)}
+  className="bg-blue-500 hover:bg-blue-700 text-white font-semibold text-sm py-0.5 px-2 rounded-md shadow-sm"
+>
+  Add Project
+</button>
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {profile.projects.map((project, index) => (
-              <div key={index} className="border rounded-lg p-4 relative">
-                <h3 className="font-semibold font-heading">{project.title}</h3>
-                <p className="text-gray-600 font-body">{project.description}</p>
-                <a
-                  href={project.link}
-                  className="text-blue-500 hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View Project
-                </a>
+              <div key={index} className="relative border rounded-lg overflow-hidden shadow-sm">
+                {/* Delete Button */}
+                <button
+  onClick={() => handleDeleteProject(index)}
+  className="absolute top-1 right-1 bg-red-500 text-white font-bold text-xs py-0.5 px-1 rounded-full hover:bg-red-700"
+>
+  X
+</button>
+                
+                {/* Project Details */}
+                <div className="p-4">
+                  <h3 className="font-semibold text-lg mb-2">{project.title}</h3>
+                  <p className="text-gray-600 mb-3">{project.description}</p>
+                  <a
+                    href={project.link}
+                    className="bg-green-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-green-500 transition duration-200 font-medium"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Project → 
+                  </a>
+                </div>
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Modal for Adding New Project */}
+        {isModalOpen && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+            <div className="bg-white rounded-lg shadow-lg p-6 w-96">
+              <h3 className="text-xl font-semibold mb-4">Add New Project</h3>
+              <input
+                type="text"
+                placeholder="Project Title"
+                value={newProject.title}
+                onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
+                className="w-full mb-3 p-2 border border-gray-300 rounded"
+              />
+              <textarea
+                placeholder="Project Description"
+                value={newProject.description}
+                onChange={(e) => setNewProject({ ...newProject, description: e.target.value })}
+                className="w-full mb-3 p-2 border border-gray-300 rounded resize-none"
+              ></textarea>
+              <input
+                type="url"
+                placeholder="Project URL"
+                value={newProject.link}
+                onChange={(e) => setNewProject({ ...newProject, link: e.target.value })}
+                className="w-full mb-3 p-2 border border-gray-300 rounded"
+              />
+              <div className="flex justify-end gap-2">
+                <button 
+                  onClick={() => setIsModalOpen(false)}
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-700 font-semibold py-2 px-4 rounded"
+                >
+                  Cancel
+                </button>
+                <button 
+                  onClick={handleAddProject}
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded"
+                >
+                  Save
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Save Button */}
+        <div className="absolute bottom-9 right-9">
+          <button
+            onClick={handleSave}
+            className="bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-full shadow-md"
+          >
+            Save
+          </button>
         </div>
       </div>
     </main>
