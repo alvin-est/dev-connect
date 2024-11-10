@@ -13,7 +13,7 @@ const User = () => {
     about: 'Data Scientist with 2 years of experience in web development.',
     skills: '',
     github: 'https://github.com/Tinaika19',
-    website: 'https://johndoe.dev',
+    resume: './src/assets/resume.JPG',
     profileImage: './src/assets/tinaika_pereira.jpeg',
     projects: [
       {
@@ -109,12 +109,13 @@ const User = () => {
                 GitHub Profile
               </a>
               <a 
-                href={profile.website} 
+                href="./src/assets/resume.JPG" 
                 className="bg-blue-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-blue-500 transition duration-200 font-medium"
                 target="_blank" 
                 rel="noopener noreferrer"
+                download="resume.JPG"
               >
-                Resume
+                Download Resume
               </a>
             </div>
           </div>
