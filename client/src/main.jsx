@@ -6,8 +6,10 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 
-// Import styles
-// import './output.css'
+// Import the AuthGuard component
+import AuthGuard from './components/AuthGuard';
+
+// Import global styles
 import './assets/styles.css'
 
 // Import pages
@@ -19,6 +21,7 @@ import Developers from './pages/Developers';
 import Login from './pages/Login';
 import Registration from './pages/Register';
 import User from './pages/User';
+import Logout from './pages/Logout';
 /* Import more pages here */
 
 
@@ -30,12 +33,14 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { index: true, element: <Home />},
-      { path: "home", element: <Home />}, 
-      { path: "profile", element: <Profile />},
-      { path: "developers", element: <Developers />},
+      { path: "home", element: <Home />},
       { path: "register", element: <Registration />},
       { path: "login", element: <Login />},
-      { path: "user", element: <User />},
+      // AuthGuard (protected) routes for logged-in users only
+      { path: "logout", element: <AuthGuard><Logout /></AuthGuard>},
+      { path: "profile", element: <AuthGuard><Profile /></AuthGuard>},
+      { path: "developers", element: <AuthGuard><Developers /></AuthGuard>},
+      { path: "user", element: <AuthGuard><User /></AuthGuard>},
       /* Add more pages here */
     ],
   },

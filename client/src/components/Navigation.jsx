@@ -1,23 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Navigation = ({ isMobile }) => {
-  /* Helper code to dynamically determine the active link if needed */
-  // const currentPage = useLocation().pathname; // Find the current page URL
-  // const activeLink = (path) => {
-  //   return currentPage === path ? 'nav-link nav-active' : 'nav-link';
-  // }
+import AuthService from '../utils/auth';
 
-  return (
-    <nav>
-      <ul
-        className={`${
-          isMobile
-            ? 'flex flex-col space-y-4' // On mobile: stack links vertically with spacing
-            : 'flex space-x-6' // On desktop: align links horizontally with spacing
-        }`}
-      >
-        {/* Home Link */}
+const Navigation = ({ isMobile }) => {
+  const isAuthenticated = AuthService.loggedIn();
+
+  alert('isAuthenticated: ' + isAuthenticated);
+
+  // Helper function to determine which links to show
+  const renderNavLinks = () => {
+    if (!isAuthenticated) {
+      // Only show home link for non-authenticated users
+      return (
         <li>
           <NavLink
             exact
@@ -27,28 +22,60 @@ const Navigation = ({ isMobile }) => {
             Home
           </NavLink>
         </li>
+      );
+    }
+    else {
+      // For authenticated users, show all links
+      return (
+        <>
+          <li>
+            <NavLink
+              exact
+              to="/"
+              className="font-body text-white hover:text-[#C4E736] transition duration-200 underline-offset-4 hover:underline"
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              exact
+              to="/developers"
+              className="font-body text-white hover:text-[#C4E736] transition duration-200 underline-offset-4 hover:underline"
+            >
+              Developers
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              exact
+              to="/profile"
+              className="font-body text-white hover:text-[#C4E736] transition duration-200 underline-offset-4 hover:underline"
+            >
+              Profile
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              exact
+              to="/logout"
+              className="font-body text-white hover:text-[#C4E736] transition duration-200 underline-offset-4 hover:underline"
+            >
+              Logout
+            </NavLink>
+          </li>
+          {/* Add more NavLinks for authenticated users here */}
+        </>
+      );
+    }    
+  };
 
-        {/* Developers Link */}
-        <li>
-          <NavLink
-            exact
-            to="/developers"
-            className="font-body text-white hover:text-[#C4E736] transition duration-200 underline-offset-4 hover:underline"
-          >
-            Developers
-          </NavLink>
-        </li>
-
-        {/* Profile Link */}
-        <li>
-          <NavLink
-            exact
-            to="/profile"
-            className="font-body text-white hover:text-[#C4E736] transition duration-200 underline-offset-4 hover:underline"
-          >
-            Profile
-          </NavLink>
-        </li>
+  return (
+    <nav>
+      <ul
+        className={`${isMobile ? 'flex flex-col space-y-4' : 'flex space-x-6'}`}
+      >
+        {renderNavLinks()}
       </ul>
     </nav>
   );
