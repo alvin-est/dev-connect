@@ -7,7 +7,7 @@ const Login = () => {
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
           alt="DevDeploy Logo"
-          src="/assets/devdeploy_var_logo_white_bg.jpg" // Use your homepage logo
+          src="/assets/updated_homepage_logo.jpg" // Use your homepage logo
           className="mx-auto h-20 w-20 object-contain"
         />
         <h2 className="mt-10 text-center text-2xl font-bold tracking-tight text-gray-900">

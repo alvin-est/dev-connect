@@ -37,7 +37,7 @@ const Registration = () => {
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <img
           alt="DevDeploy Logo"
-          src="/assets/devdeploy_var_logo_white_bg.jpg"
+          src="/assets/updated_homepage_logo.jpg"
           className="mx-auto h-20 w-20 object-contain"
         />
         <h2 className="mt-10 text-center text-2xl font-bold tracking-tight text-gray-900">
