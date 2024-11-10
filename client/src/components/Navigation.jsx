@@ -7,6 +7,7 @@ const Navigation = ({ isMobile }) => {
   const isAuthenticated = AuthService.loggedIn();
 
   alert('isAuthenticated: ' + isAuthenticated);
+  
 
   // Helper function to determine which links to show
   const renderNavLinks = () => {
