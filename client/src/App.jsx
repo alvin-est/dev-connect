@@ -41,9 +41,9 @@ function App() {
           <Header />
           
           {/* Main */}
-          <main className="flex-grow">
+          <main className="flex-grow overflow-y-auto">
             <Outlet />
-            </main>
+          </main>
     
           {/* Footer */}
           <Footer />

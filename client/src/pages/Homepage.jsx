@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from '../components/AuthContext';
 
 const Homepage = () => {
+  // Is user logged in? Returns true or false
+  const { isLoggedIn } = useAuth();
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Main body container */}
@@ -32,22 +36,25 @@ const Homepage = () => {
           </p>
 
           {/* Sign Up and Login Buttons */}
-          <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mt-4 w-full px-6 justify-center">
-            {/* Login Button */}
-            <Link
-              to="/login"
-              className="px-6 py-3 text-black bg-[#C4E736] font-semibold rounded-lg hover:bg-[#3F94EE] hover:text-white transition duration-200 drop-shadow-md text-center"
-            >
-              Login
-            </Link>
-            {/* Sign Up Button */}
-            <Link
-              to="/register"
-              className="px-6 py-3 text-white bg-[#EB6047] font-semibold rounded-lg hover:bg-[#3F94EE] hover:text-white transition duration-200 drop-shadow-md text-center"
-            >
-              Sign Up
-            </Link>
-          </div>
+          {/* Conditionally render Sign Up and Login Buttons */}
+          {!isLoggedIn && (
+            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mt-4 w-full px-6 justify-center">
+              {/* Login Button */}
+              <Link
+                to="/login"
+                className="px-6 py-3 text-black bg-[#C4E736] font-semibold rounded-lg hover:bg-[#3F94EE] hover:text-white transition duration-200 drop-shadow-md text-center"
+              >
+                Login
+              </Link>
+              {/* Sign Up Button */}
+              <Link
+                to="/register"
+                className="px-6 py-3 text-white bg-[#EB6047] font-semibold rounded-lg hover:bg-[#3F94EE] hover:text-white transition duration-200 drop-shadow-md text-center"
+              >
+                Sign Up
+              </Link>
+            </div>
+          )}
         </div>
 
         {/* Right Section - Background Image */}
