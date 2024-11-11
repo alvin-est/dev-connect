@@ -40,8 +40,21 @@ const resolvers = {
       return { token, user };
     },
 
-    addUser: async (parent, { name, email, password }) => {
-      const user = await User.create({ name, email, password });
+    addUser: async (parent, { name, email, password, profile }) => {
+      // Create user with default profile if profile is not provided
+      const user = await User.create({
+        name,
+        email,
+        password,
+        profile: profile || {
+          photoURL: "",
+          role: "",
+          location: "",
+          githubURL: "",
+          resumeURL: "",
+          skills: []
+        }
+      });
       const token = signToken(user);
       return { token, user };
     },

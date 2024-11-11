@@ -55,6 +55,24 @@ const Registration = () => {
         }
       });
 
+      // const { data } = await addUser({
+      //   variables: {
+      //     input: {
+      //       name: formData.name,
+      //       email: formData.email,
+      //       password: formData.password,
+      //       profile: {
+      //         photoURL: "",
+      //         role: "",
+      //         location: "",
+      //         githubURL: "",
+      //         resumeURL: "",
+      //         skills: []
+      //       }
+      //     }
+      //   }
+      // });
+
       console.log('Auth data:', data);
 
       // Assuming the mutation returns a token, save it

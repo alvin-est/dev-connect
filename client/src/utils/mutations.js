@@ -19,6 +19,15 @@ export const ADD_USER = gql`
       user {
         _id
         name
+        email
+        profile {
+          photoURL
+          role
+          location
+          githubURL
+          resumeURL
+          skills
+        }
       }
     }
   }

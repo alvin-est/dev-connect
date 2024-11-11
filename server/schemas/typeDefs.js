@@ -33,6 +33,13 @@ const typeDefs = `
     skills: [String]
   }
 
+  input UserInput {
+    name: String!
+    email: String!
+    password: String!
+    profile: UpdateProfileInput
+  }
+    
   type Auth {
     token: String!
     user: User
@@ -46,7 +53,7 @@ const typeDefs = `
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(name: String!, email: String!, password: String!): Auth
+    addUser(name: String!, email: String!, password: String!, profile: UpdateProfileInput): Auth
     addProject(title: String!, description: String!, URL: String!): Project
     updateProfile(profile: UpdateProfileInput!): User
   }

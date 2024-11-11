@@ -14,12 +14,12 @@ export const GET_ME = gql`
         resumeURL
         skills
       }
-      projects {
-        _id
-        title
-        description
-        URL
-      }
+      # projects {
+      #   _id
+      #   title
+      #   description
+      #   URL
+      # }
     }
   }
 `;
