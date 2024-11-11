@@ -109,10 +109,12 @@ const Developers = ({ onSelectDeveloper }) => {
   });
 
   const handleDeveloperClick = (developerId) => {
-    if (developerId === 11) { // Check for Sam Doe's ID
-      window.location.href = `/profile/${developerId}?viewMode=true`; // Redirect with viewMode=true for Sam Doe
+    if (developerId === 11) {
+      // Redirect Sam Doe (ID 11) to the /profile page (view mode)
+      window.location.href = `/profile?viewMode=true`; // Assuming `/profile` is for the UserProfile
     } else {
-      window.location.href = `/profile/${developerId}`; // Redirect to other profiles without viewMode
+      // Redirect other developers to their profile pages
+      window.location.href = `/profile/${developerId}`;
     }
   };
 
