@@ -16,7 +16,15 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
-    }
+    },
+    profile: {
+      type: Schema.Types.Mixed,
+      default: {}
+    },
+    projects: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Project'
+    }]  
   },
   // set this to use virtual below
   {

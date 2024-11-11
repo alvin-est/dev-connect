@@ -22,6 +22,7 @@ import Login from './pages/Login';
 import Registration from './pages/Register';
 import User from './pages/User';
 import Logout from './pages/Logout';
+import Edit from './pages/EditTemp';
 /* Import more pages here */
 
 
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
       { path: "register", element: <Registration />},
       { path: "login", element: <Login />},
       // AuthGuard (protected) routes for logged-in users only
+      { path: "edit", element: <AuthGuard><Edit /></AuthGuard>},
       { path: "logout", element: <AuthGuard><Logout /></AuthGuard>},
       { path: "profile", element: <AuthGuard><Profile /></AuthGuard>},
       { path: "developers", element: <AuthGuard><Developers /></AuthGuard>},

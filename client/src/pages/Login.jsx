@@ -16,7 +16,7 @@ const Login = () => {
         // Store the token in localStorage or a global state management solution
         localStorage.setItem('token', login.token);
         alert('Login successful!');
-        navigate('/'); // Redirect to dashboard or home page
+        navigate('/profile'); // Redirect to dashboard or home page
       }
     },
     onError(error) {
