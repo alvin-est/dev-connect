@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations'; // You'll need to create this file with the mutation definition
-
+import { ADD_USER } from '../utils/mutations';
 import AuthService from '../utils/auth';
 
 import { Link } from "react-router-dom"; // Import for navigation

@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import AuthService from '../utils/auth';
+import { useAuth } from './AuthContext';
 
 const Navigation = ({ isMobile }) => {
-  const isAuthenticated = AuthService.loggedIn();
+  const { isLoggedIn } = useAuth();
+  const isAuthenticated = isLoggedIn;
 
   alert('isAuthenticated: ' + isAuthenticated);
 

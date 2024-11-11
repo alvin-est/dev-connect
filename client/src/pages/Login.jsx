@@ -2,19 +2,21 @@
 import React, { useState } from "react";
 import { useMutation, gql } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
-
+import { useAuth } from '../components/AuthContext';
 import { LOGIN_USER } from "../utils/mutations";
 import { Link } from "react-router-dom";
 
 const Login = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const navigate = useNavigate();
+
+  const setContext = useAuth();
   
   const [login, { loading, error }] = useMutation(LOGIN_USER, {
     onCompleted({ login }) {
       if (login.token) {
         // Store the token in localStorage or a global state management solution
-        localStorage.setItem('token', login.token);
+        setContext.login(login.token); // Save token and set context state to logged in
         alert('Login successful!');
         navigate('/profile'); // Redirect to dashboard or home page
       }

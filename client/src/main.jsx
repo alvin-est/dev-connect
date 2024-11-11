@@ -6,8 +6,12 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 
-// Import the AuthGuard component
+// Import the AuthGuard and GuestGuard components
 import AuthGuard from './components/AuthGuard';
+import GuestGuard from './components/GuestGuard';
+
+// Import the AuthContext provider
+import { AuthProvider } from './components/AuthContext';
 
 // Import global styles
 import './assets/styles.css'
@@ -23,6 +27,7 @@ import Registration from './pages/Register';
 import User from './pages/User';
 import Logout from './pages/Logout';
 import Edit from './pages/EditTemp';
+import Auth from './utils/auth';
 /* Import more pages here */
 
 
@@ -35,8 +40,9 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home />},
       { path: "home", element: <Home />},
-      { path: "register", element: <Registration />},
-      { path: "login", element: <Login />},
+      // GuestGuard (public) routes for non-logged-in users only
+      { path: "register", element: <GuestGuard><Registration /></GuestGuard>},
+      { path: "login", element: <GuestGuard><Login /></GuestGuard>},
       // AuthGuard (protected) routes for logged-in users only
       { path: "edit", element: <AuthGuard><Edit /></AuthGuard>},
       { path: "logout", element: <AuthGuard><Logout /></AuthGuard>},
@@ -49,7 +55,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+  <AuthProvider>
+    <RouterProvider router={router} />
+  </AuthProvider>
 );
 
   
