@@ -2,7 +2,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Project 3 Group 1
-[Alvin Estados](https://github.com/alvin-est), [Cameron Beattie](https://github.com/Cbeattie97), [Tinaika Pereira](https://github.com/Tinaika19) & [Kate Stapley](https://github.com/KateHanSta17)
+[Alvin Estado](https://github.com/alvin-est), [Cameron Beattie](https://github.com/Cbeattie97), [Tinaika Pereira](https://github.com/Tinaika19) & [Kate Stapley](https://github.com/KateHanSta17)
 
 ## Github Repo
 [DevDeploy! Repo](https://github.com/alvin-est/dev-deploy)
@@ -75,7 +75,7 @@ This project is licensed under the MIT license.
 
 
 ## Contributors
-- [Alvin Estados](https://github.com/alvin-est) Scum Master & Backend Developer + QA/UAT
+- [Alvin Estado](https://github.com/alvin-est) Scrum Master & Backend Developer + QA/UAT
 - [Cameron Beattie](https://github.com/Cbeattie97) Backend Developer & DevOps + QA/UAT
 - [Tinaika Pereira](https://github.com/Tinaika19) Frontend Developer & UI/UX + QA/UAT
 - [Kate Stapley](https://github.com/KateHanSta17) Frontend Developer & UI Designer + QA/UAT
@@ -131,12 +131,3 @@ Instead of using a CSS library like Bootstrap, consider one of the following sug
 - Create all the CSS for your application just using CSS.
 
 Ultimately, it doesn't matter which of these options you choose—it just needs to look professional and be mobile-friendly.
-
-### Payment Platform
-Consider integrating the Stripe payment platform. Even if you don’t create an e-commerce application, you could set up your site to accept charitable donations.
-
-### Bonus
-Although this is not a requirement for your project, see if you can also implement functionality to meet the minimum requirements of a PWA:
-- Uses a web manifest
-- Uses a service worker for offline functionality
-- Is installable
