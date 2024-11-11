@@ -1,46 +1,86 @@
-const { User, Comment } = require('../models');
-const { signToken, AuthenticationError } = require('../utils/auth');
-// const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const { User } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    // // get all users
-    // users: async () => {
-    //   return User.find();
-    // },
-    // get a user by username
-    user: async (parent, { id }) => {
-      return User.findOne({ _id: id });
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return await User.findById(context.user._id);
+      }
+      throw new Error('Not authenticated');
     },
-    // get comment by id
-    comment: async (parent, { id }) => {
-      return Comment.findOne({ _id: id });
-    }
+    getUserByEmail: async (_, { email }) => {
+      const user = await User.findOne({ email: email });
+      if (!user) {
+        throw new Error('User not found');
+      }
+      return user;
+    },
+    allUsers: async () => {
+      try {
+        const users = await User.find({}).select('-password'); // Exclude password for security
+        return users;
+      } catch (error) {
+        throw new Error('Error fetching users: ' + error.message);
+      }
+    },
   },
   Mutation: {
-    // create a new user
-    addUser: async (parent, args) => {
-      const user = await User.create(args);
-      const token = signToken(user);
-      return { token, user };
-    },
-    // login a user
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-
       if (!user) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new Error('User not found');
       }
 
-      const correctPw = await user.isCorrectPassword(password);
-
-      if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+      const correctPassword = await user.isCorrectPassword(password);
+      if (!correctPassword) {
+        throw new Error('Incorrect password');
       }
-
       const token = signToken(user);
       return { token, user };
     },
+
+    addUser: async (parent, { name, email, password, profile }) => {
+      // Create user with default profile if profile is not provided
+      const user = await User.create({
+        name,
+        email,
+        password,
+        profile: profile || {
+          photoURL: "",
+          role: "",
+          location: "",
+          githubURL: "",
+          resumeURL: "",
+          skills: [],
+          bio: ""
+        }
+      });
+      const token = signToken(user);
+      return { token, user };
+    },
+
+    addProject: async (parent, args, context) => {
+      if (!context.user) {
+        throw new Error('Authentication required');
+      }
+      const project = await Project.create({ ...args, user: context.user._id });
+      await User.findByIdAndUpdate(context.user._id, { $push: { projects: project._id } });
+      return project;
+    },
+
+    updateProfile: async (parent, { profile }, context) => {
+      if (!context.user) {
+        throw new Error('Authentication required');
+      }
+      try {
+        const user = await User.findByIdAndUpdate(context.user._id, { $set: { profile: profile } }, { new: true });
+        return user;
+      } catch (error) {
+        console.error("Failed to update profile:", error);
+        throw new Error('Failed to update profile');
+      }      
+    }
   }
 };
 

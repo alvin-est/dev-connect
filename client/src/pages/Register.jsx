@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
+import AuthService from '../utils/auth';
+import { useAuth } from '../components/AuthContext';
+import { Link } from "react-router-dom"; // Import for navigation
+
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +15,11 @@ const Registration = () => {
   });
   const [errorMessage, setErrorMessage] = useState("");
 
+  const setContext = useAuth();
+
+  // Use mutation for adding a new user
+  const [addUser, { error }] = useMutation(ADD_USER);
+
   // Handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -16,8 +27,11 @@ const Registration = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    console.log(`Hit onsubmit`);
+
 
     // Password validation
     if (formData.password !== formData.confirmPassword) {
@@ -28,28 +42,107 @@ const Registration = () => {
     // Clear error message on successful validation
     setErrorMessage("");
 
-    console.log("Form submitted: ", formData);
-    // TODO: Add logic to send the formData to the backend
-  };
+    // Logic to send the formData to the backend
+    try {
+      console.log(`Attempting mutation`);
+
+      // Attempt to add user with GraphQL mutation
+      const { data } = await addUser({
+        variables: {
+          name: formData.name,
+          email: formData.email,
+          password: formData.password
+        }
+      });
+
+      // const { data } = await addUser({
+      //   variables: {
+      //     input: {
+      //       name: formData.name,
+      //       email: formData.email,
+      //       password: formData.password,
+      //       profile: {
+      //         photoURL: "",
+      //         role: "",
+      //         location: "",
+      //         githubURL: "",
+      //         resumeURL: "",
+      //         skills: []
+      //       }
+      //     }
+      //   }
+      // });
+
+      console.log('Auth data:', data);
+
+      // Assuming the mutation returns a token, save it
+      if (data && data.addUser.token) {
+        console.log(`Saving token`);
+        // AuthService.login(data.addUser.token);
+        setContext.login(data.addUser.token); // Use AuthContext to handle login and set context state
+      } else {
+        setErrorMessage('Something went wrong with registration.');
+      }
+
+      // Inform user
+      alert('Registration successful!');
+    } catch (err) {
+      console.error(err);
+      setErrorMessage(err.message || 'An error occurred while registering.');
+      alert('Registration failed. Please try again.');
+      }
+    };
+    // console.log("Form submitted: ", formData);
+
 
   return (
-    <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 bg-gray-50">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+    <div className="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8 bg-[#F9FAFB]">
+      {/* Logo Section */}
+      <div className="sm:mx-auto sm:w-full sm:max-w-md relative">
+        {/* Back to Homepage Icon */}
+        <Link
+          to="/"
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-900"
+          aria-label="Back to Homepage"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </Link>
+
+        {/* Logo */}
         <img
           alt="DevDeploy Logo"
-          src="/assets/devdeploy_var_logo_white_bg.jpg"
+          src="/assets/updated_homepage_logo.jpg" // Adjusted to match the homepage logo
           className="mx-auto h-20 w-20 object-contain"
         />
+
+        {/* Heading */}
         <h2 className="mt-10 text-center text-2xl font-bold tracking-tight text-gray-900">
           Create Your Account
         </h2>
       </div>
 
+      {/* Form Section */}
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-md">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name Field */}
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-900">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-900"
+            >
               Name
             </label>
             <input
@@ -65,7 +158,10 @@ const Registration = () => {
 
           {/* Email Field */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-900">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-900"
+            >
               Email
             </label>
             <input
@@ -81,7 +177,10 @@ const Registration = () => {
 
           {/* Password Field */}
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-900">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-900"
+            >
               Password
             </label>
             <input
@@ -97,7 +196,10 @@ const Registration = () => {
 
           {/* Confirm Password Field */}
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-900">
+            <label
+              htmlFor="confirmPassword"
+              className="block text-sm font-medium text-gray-900"
+            >
               Confirm Password
             </label>
             <input
@@ -112,13 +214,15 @@ const Registration = () => {
           </div>
 
           {/* Error Message */}
-          {errorMessage && <p className="text-sm text-red-600">{errorMessage}</p>}
+          {errorMessage && (
+            <p className="text-sm text-red-600 text-center">{errorMessage}</p>
+          )}
 
           {/* Submit Button */}
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-[#3F94EE] px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-[#C4E736] hover:text-black transition duration-200"
+              className="flex w-full justify-center rounded-md bg-[#C4E736] px-3 py-1.5 text-sm font-semibold text-black shadow-sm hover:bg-[#3F94EE] hover:text-white transition duration-200"
             >
               Register
             </button>

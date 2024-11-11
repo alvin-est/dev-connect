@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
-    <footer className="bg-[#042d62] text-white py-6 mt-auto">
-      <div className="container mx-auto px-10 flex flex-wrap justify-between items-center">
-        {/* Logo Section */}
+    <footer className="footer bg-[#042d62] text-white py-6 mt-auto">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        {/* Logo and copyright message */}
         <div className="flex items-center">
           <img
             src="/assets/devdeploy_logo_footer.jpg"
@@ -13,25 +13,19 @@ const Footer = () => {
         </div>
 
         {/* Footer navigation links */}
-        <nav>
-          <ul className="flex space-x-6">
-            <li>
-              <a
-                href="#"
-                className="font-body text-white hover:text-accent-500 transition duration-200"
-              >
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="font-body text-white hover:text-accent-500 transition duration-200"
-              >
-                Terms of Service
-              </a>
-            </li>
-          </ul>
+        <nav className="flex space-x-4">
+          <a
+            href="#"
+            className="font-body text-white hover:text-[#C4E736] transition duration-200"
+          >
+            Privacy Policy
+          </a>
+          <a
+            href="#"
+            className="font-body text-white hover:text-[#C4E736] transition duration-200"
+          >
+            Terms of Service
+          </a>
         </nav>
       </div>
     </footer>
