@@ -17,7 +17,7 @@ const Login = () => {
       if (login.token) {
         // Store the token in localStorage or a global state management solution
         setContext.login(login.token); // Save token and set context state to logged in
-        alert('Login successful!');
+        // alert('Login successful!');
         navigate('/profile'); // Redirect to dashboard or home page
       }
     },
