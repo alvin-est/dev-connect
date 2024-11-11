@@ -23,8 +23,11 @@
   }
   /* Reset styles if needed */
   body {
-    @apply text-gray-800 bg-white;
+    @apply text-gray-800 bg-white min-h-screen;
+    padding-top: 100px; /* Adjust this value based on your header height */
+    padding-bottom: 100px; /* Adjust this value based on your footer height */
   }
+
 }
 
 /* Custom Components */
@@ -43,6 +46,38 @@
   /* Card component */
   .card {
     @apply bg-white rounded overflow-hidden shadow-lg p-6;
+  }
+
+  /* Modify Header for fixed positioning */
+  .header {
+    @apply fixed top-0 left-0 right-0 z-50; /* z-index to ensure it's above other content */
+    /* Specific height if necessary */
+    height: 100px; /* Example height, adjust as needed */
+  }
+
+  /* Modify Footer for fixed positioning */
+  .footer {
+    @apply fixed bottom-0 left-0 right-0 z-50; /* z-index to ensure it's above other content */
+    /* Specific height if necessary */
+    height: 100px; /* Example height, adjust as needed */
+  }
+}
+
+@media (max-width: 640px) {
+  /* Responsive styles for mobile */
+  .header {
+    @apply relative top-auto;
+    height: max-content;
+    margin: 0px;
+  }
+  .footer {
+    @apply relative bottom-auto;
+    height: max-content;
+    margin: 0px;
+  }
+
+  body {
+    padding: 0px;
   }
 }
 
@@ -74,6 +109,7 @@
     }
   }
 }
+
 
 /* Extra styles that don't fit into Tailwind's layers or need to always be included */
 .custom-style {

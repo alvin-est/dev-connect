@@ -5,7 +5,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false); // State to control the mobile menu visibility
 
   return (
-    <header className="bg-[#042d62] text-white shadow">
+    <header className="header bg-[#042d62] text-white shadow">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Left: Application Title */}
         <h1 className="font-heading text-xl md:text-2xl">DevDeploy!</h1>
