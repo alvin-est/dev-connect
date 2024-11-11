@@ -78,7 +78,8 @@ This project is licensed under the MIT license.
 - [Alvin Estado](https://github.com/alvin-est) Scrum Master & Backend Developer + QA/UAT
 - [Cameron Beattie](https://github.com/Cbeattie97) Backend Developer & DevOps + QA/UAT
 - [Tinaika Pereira](https://github.com/Tinaika19) Frontend Developer & UI/UX + QA/UAT
-- [Kate Stapley](https://github.com/KateHanSta17) Frontend Developer & UI Designer + QA/UAT
+- [Kate Stapley](https://github.com/KateHanSta17) Frontend Developer & UI Designer + QA/UAT  
+
 ![Contributions over time](./client/public/assets/contributorsgraphreadme.jpg)
 
 ## Tests
