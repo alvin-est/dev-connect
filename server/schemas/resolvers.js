@@ -72,13 +72,13 @@ const resolvers = {
       if (!context.user) {
         throw new Error('Authentication required');
       }
-      const user = await User.findById(context.user._id);
-      if (!user.profile) {
-        user.profile = {};
-      }
-      Object.assign(user.profile, profile);
-      await user.save();
-      return user;
+      try {
+        const user = await User.findByIdAndUpdate(context.user._id, { $set: { profile: profile } }, { new: true });
+        return user;
+      } catch (error) {
+        console.error("Failed to update profile:", error);
+        throw new Error('Failed to update profile');
+      }      
     }
   }
 };

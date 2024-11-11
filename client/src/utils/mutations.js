@@ -58,6 +58,12 @@ export const UPDATE_PROFILE = gql`
         resumeURL
         skills
       }
+      # projects {
+      #   _id
+      #   title
+      #   description
+      #   URL
+      # }
     }
   }
 `;
