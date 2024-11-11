@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useQuery, gql } from '@apollo/client';
+import { GET_ME } from '../utils/queries';
 
 /* Profile page */
 const UserProfile = () => {
+
+  /* All other logic */
+  
   const [isEditing, setIsEditing] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newProject, setNewProject] = useState({ title: '', description: '', link: '' });
@@ -68,6 +73,9 @@ const UserProfile = () => {
       projects: prevProfile.projects.filter((_, index) => index !== indexToDelete)
     }));
   };
+
+  /* User Info Getter */
+  const { loading, error, data } = useQuery(GET_ME);
 
   return (
     <main>

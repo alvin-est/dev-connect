@@ -7,7 +7,7 @@ import { GET_ME } from '../utils/queries';
 /* Profile page */
 const User = () => {
 
-    /* Getter */
+    /* User Info Getter */
     const { loading, error, data } = useQuery(GET_ME); // Fetch logged in user's details
   
     if (loading) return <p>Loading...</p>;
@@ -25,6 +25,7 @@ const User = () => {
             <p>Name: {data.me.name}</p>
             <p>Email: {data.me.email}</p>
             <h2>More Details</h2>
+            <p>About: {data.me.profile.bio}</p>
             <p>Photo: {data.me.profile.photoURL}</p>
             <p>Role: {data.me.profile.role}</p>
             <p>Location: {data.me.profile.location}</p>

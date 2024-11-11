@@ -15,6 +15,7 @@ const typeDefs = `
     githubURL: String
     resumeURL: String
     skills: [String]
+    bio: String
   }
   
   type Project {
@@ -31,6 +32,7 @@ const typeDefs = `
     githubURL: String
     resumeURL: String
     skills: [String]
+    bio: String
   }
 
   input UserInput {

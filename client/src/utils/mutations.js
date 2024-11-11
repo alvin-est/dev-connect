@@ -57,6 +57,7 @@ export const UPDATE_PROFILE = gql`
         githubURL
         resumeURL
         skills
+        bio
       }
       # projects {
       #   _id

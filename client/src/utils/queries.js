@@ -13,6 +13,7 @@ export const GET_ME = gql`
         githubURL
         resumeURL
         skills
+        bio
       }
       # projects {
       #   _id

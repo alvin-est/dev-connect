@@ -52,7 +52,8 @@ const resolvers = {
           location: "",
           githubURL: "",
           resumeURL: "",
-          skills: []
+          skills: [],
+          bio: ""
         }
       });
       const token = signToken(user);

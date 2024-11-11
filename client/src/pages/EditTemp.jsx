@@ -39,8 +39,13 @@ const Edit = () => {
             const { data } = await updateProfile({
                 variables: {
                     profile: {
-                        ...formState,
-                        skills: skillsArray
+                        photoURL: formState.photoURL,
+                        role: formState.role,
+                        location: formState.location,
+                        githubURL: formState.githubURL,
+                        resumeURL: formState.resumeURL,
+                        skills: skillsArray,
+                        bio: formState.bio
                     }
                 }
             });
@@ -58,6 +63,16 @@ const Edit = () => {
     <div className="flex items-center justify-center min-h-screen">
         <div className="flex flex-col items-center">
             <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+                <div className="mb-4">
+                    <label htmlFor="bio" className="block mb-2 text-sm font-medium text-gray-600">About:</label>
+                    <input 
+                        type="text" 
+                        name="bio" 
+                        value={formState.bio} 
+                        onChange={handleChange} 
+                        className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-indigo-200"
+                    />
+                </div>
                 <div className="mb-4">
                     <label htmlFor="photoURL" className="block mb-2 text-sm font-medium text-gray-600">Photo URL:</label>
                     <input 
