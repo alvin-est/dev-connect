@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
+import { useNavigate } from "react-router-dom";
 
 /* Profile page */
 const UserProfile = () => {
   // const [isEditing, setIsEditing] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newProject, setNewProject] = useState({ title: '', description: '', link: '' });
+  const navigate = useNavigate();
   
   const [profile, setProfile] = useState({
     name: 'Sam Doe',
@@ -114,7 +116,7 @@ const UserProfile = () => {
 
           {/* Edit Profile Button */}
           <button 
-            onClick={() => setIsEditing(!isEditing)}
+            onClick={() => navigate('/edit')}
             className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full shadow-md"
           >
             Edit Profile
@@ -157,13 +159,24 @@ const UserProfile = () => {
         {/* Skills Section as Textarea */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           <h2 className="text-xl font-semibold mb-4">Skills</h2>
-          <textarea
+          {/* <textarea
             value={data.me.profile.skills}
             onChange={handleSkillsChange}
             className="w-full h-24 p-4 border-2 border-gray-300 rounded-lg shadow-sm resize-none"
             placeholder="Enter your skills here, separated by commas"
           ></textarea>
-        </div>
+         */}
+          <ul>
+            {data.me.profile.skills && data.me.profile.skills.length > 0 ? (
+              data.me.profile.skills.map((skill, index) => (
+                <li key={index}>{skill}</li>
+              ))
+            ) : (
+              <li>No skills provided</li>
+            )}
+          </ul>
+         </div>
+          
 
         {/* Projects Section */}
         <div className="bg-white rounded-lg shadow-md p-6">
@@ -250,12 +263,12 @@ const UserProfile = () => {
 
         {/* Save Button */}
         <div className="absolute bottom-9 right-9">
-          <button
+          {/* <button
             onClick={handleSave}
             className="bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-full shadow-md"
           >
             Save
-          </button>
+          </button> */}
         </div>
       </div>
     </main>
