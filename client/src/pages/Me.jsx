@@ -5,7 +5,7 @@ import { GET_ME } from '../utils/queries';
 
 
 /* Profile page */
-const User = () => {
+const Me = () => {
 
     /* User Info Getter */
     const { loading, error, data } = useQuery(GET_ME); // Fetch logged in user's details
@@ -14,7 +14,6 @@ const User = () => {
     if (error) return <p>Error: {error.message}</p>;
 
     console.log(data);
-
   
     return (
       <div>
@@ -51,4 +50,4 @@ const User = () => {
 
 }
 
-export default User;
+export default Me;

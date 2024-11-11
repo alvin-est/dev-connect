@@ -7,7 +7,7 @@ const Navigation = ({ isMobile }) => {
   const { isLoggedIn } = useAuth();
   const isAuthenticated = isLoggedIn;
 
-  alert('isAuthenticated: ' + isAuthenticated);
+  // alert('isAuthenticated: ' + isAuthenticated);
 
 
   // Helper function to determine which links to show

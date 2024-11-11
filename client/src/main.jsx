@@ -24,7 +24,7 @@ import Profile from './pages/UserProfile';
 import Developers from './pages/Developers';
 import Login from './pages/Login';
 import Registration from './pages/Register';
-import User from './pages/User';
+import Me from './pages/Me';
 import Logout from './pages/Logout';
 import Edit from './pages/EditTemp';
 import Auth from './utils/auth';
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       { path: "logout", element: <AuthGuard><Logout /></AuthGuard>},
       { path: "profile", element: <AuthGuard><Profile /></AuthGuard>},
       { path: "developers", element: <AuthGuard><Developers /></AuthGuard>},
-      { path: "user", element: <AuthGuard><User /></AuthGuard>},
+      { path: "me", element: <AuthGuard><Me /></AuthGuard>},
       /* Add more pages here */
     ],
   },

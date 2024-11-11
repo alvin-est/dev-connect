@@ -76,6 +76,7 @@ const UserProfile = () => {
 
   /* User Info Getter */
   const { loading, error, data } = useQuery(GET_ME);
+  console.log('Succesfully fetched user data:', data);
 
   return (
     <main>
@@ -85,7 +86,7 @@ const UserProfile = () => {
           {/* Profile Image */}
           <div className="flex justify-center mb-4">
             <img
-              src={profile.profileImage}
+              src={data.me.profile.photoURL}
               alt="Profile"
               style={{ width: '100px', height: '100px', borderRadius: '50%' }}
               className="object-cover border-2 border-gray-300 shadow-sm"
@@ -102,14 +103,14 @@ const UserProfile = () => {
 
           {/* Profile Details */}
           <div className="mt-4">
-            <h1 className="text-3xl font-bold text-gray-900">{profile.name}</h1>
-            <p className="text-lg text-gray-600">{profile.role}</p>
-            <p className="text-gray-500 mb-4">{profile.location}</p>
+            <h1 className="text-3xl font-bold text-gray-900">{data.me.name}</h1>
+            <p className="text-lg text-gray-600">{data.me.profile.role}</p>
+            <p className="text-gray-500 mb-4">{data.me.profile.location}</p>
 
             {/* Links styled as buttons */}
             <div className="flex justify-center gap-6 mt-4">
               <a 
-                href={profile.github} 
+                href={data.me.profile.githubURL} 
                 className="bg-gray-800 text-white py-2 px-4 rounded-md shadow-sm hover:bg-gray-700 transition duration-200 font-medium"
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -117,7 +118,7 @@ const UserProfile = () => {
                 GitHub Profile
               </a>
               <a 
-                href={profile.website} 
+                href={data.me.profile.resumeURL} 
                 className="bg-blue-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-blue-500 transition duration-200 font-medium"
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -131,18 +132,27 @@ const UserProfile = () => {
         {/* About Section */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           <h2 className="text-xl font-semibold mb-4">About</h2>
-          <p className="text-gray-600">{profile.about}</p>
+          <p className="text-gray-600">{data.me.profile.bio}</p>
         </div>
 
         {/* Skills Section as Textarea */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           <h2 className="text-xl font-semibold mb-4">Skills</h2>
-          <textarea
+          {/* <textarea
             value={profile.skills}
             onChange={handleSkillsChange}
             className="w-full h-24 p-4 border-2 border-gray-300 rounded-lg shadow-sm resize-none"
             placeholder="Enter your skills here, separated by commas"
-          ></textarea>
+          ></textarea> */}
+          <ul>
+            {data.me.profile.skills && data.me.profile.skills.length > 0 ? (
+              data.me.profile.skills.map((skill, index) => (
+                <li key={index}>{skill}</li>
+              ))
+            ) : (
+              <li>No skills provided</li>
+            )}
+          </ul>
         </div>
 
         {/* Projects Section */}
