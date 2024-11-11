@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import AuthService from '../utils/auth';
-
+import { useAuth } from '../components/AuthContext';
 import { Link } from "react-router-dom"; // Import for navigation
 
 
@@ -14,6 +14,8 @@ const Registration = () => {
     confirmPassword: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
+
+  const setContext = useAuth();
 
   // Use mutation for adding a new user
   const [addUser, { error }] = useMutation(ADD_USER);
@@ -58,7 +60,8 @@ const Registration = () => {
       // Assuming the mutation returns a token, save it
       if (data && data.addUser.token) {
         console.log(`Saving token`);
-        AuthService.login(data.addUser.token);
+        // AuthService.login(data.addUser.token);
+        setContext.login(data.addUser.token); // Use AuthContext to handle login and set context state
       } else {
         setErrorMessage('Something went wrong with registration.');
       }

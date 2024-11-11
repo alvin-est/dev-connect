@@ -8,7 +8,7 @@ const User = () => {
 
     /* Getter */
     const { loading, error, data } = useQuery(GET_USER_BY_EMAIL, {
-      variables: { email: 'alvin@me.com' } // Replace with dynamic email
+      variables: { email: '' } // Replace with logged in user's email
     });
   
     if (loading) return <p>Loading...</p>;
