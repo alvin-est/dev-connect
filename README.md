@@ -64,13 +64,13 @@ This project is licensed under the MIT license.
 
 ## Screenshots
 ![Logged out Homepage](./client/public/assets/loggedouthomepage.jpg)
+![Logged in Homepage](./client/public/assets/loggedinhomepage.jpg)
+![Developers Page](./client/public/assets/developerspage.jpg)
 ![Logged out Homepage Mobile](./client/public/assets/loggedouthomepagemobile.jpg)
 ![Create Account Mobile](./client/public/assets/createaccountmobile.jpg)
 ![Sign in Mobile](./client/public/assets/signinformmobile.jpg)
-![Logged in Homepage](./client/public/assets/loggedinhomepage.jpg)
 ![Logged in Homepage Mobile](./client/public/assets/loggedinhomepagemobile.jpg)
 ![Logged in Homepage Mobile Hamburger Menu](./client/public/assets/loggedinhomepagehamburgermenu.jpg)
-![Developers Page](./client/public/assets/developerspage.jpg)
 ![Developers Page Mobile](./client/public/assets/mobileviewdeveloperspage.jpg)
 
 
