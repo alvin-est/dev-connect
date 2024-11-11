@@ -5,6 +5,8 @@ import skillColors from "../constants/skills"; // Adjust the path to your `skill
 const Developers = ({ onSelectDeveloper }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
+
+  
   const [developers] = useState([
     {
       id: 6,
@@ -47,12 +49,12 @@ const Developers = ({ onSelectDeveloper }) => {
       image: "./src/assets/alex_sexwale.jpeg",
     },
     {
-      id: 6,
-      name: 'Tristan Kennedy',
-      role: 'UX/UI Developer',
-      location: 'Sydeny, AU',
-      skills: ['Figma', 'React', 'HTML', 'CSS'],
-      image: './src/assets/tristan_kennedy.jpeg',
+      id: 12,
+      name: "Tristan Kennedy",
+      role: "UX/UI Developer",
+      location: "Sydney, AU",
+      skills: ["Figma", "React", "HTML", "CSS"],
+      image: "./src/assets/tristan_kennedy.jpeg",
     },
     {
       id: 3,
@@ -106,22 +108,20 @@ const Developers = ({ onSelectDeveloper }) => {
     );
   });
 
-// Developers.jsx
-
-const handleDeveloperClick = (developerId) => {
-  if (developerId === 11) { // Check for Sam Doe's ID
-    window.location.href = `/profile/${developerId}?viewMode=true`; // Redirect with viewMode=true for Sam Doe
-  } else {
-    window.location.href = `/profile/${developerId}`; // Redirect to other profiles without viewMode
-  }
-};
+  const handleDeveloperClick = (developerId) => {
+    if (developerId === 11) { // Check for Sam Doe's ID
+      window.location.href = `/profile/${developerId}?viewMode=true`; // Redirect with viewMode=true for Sam Doe
+    } else {
+      window.location.href = `/profile/${developerId}`; // Redirect to other profiles without viewMode
+    }
+  };
 
   return (
     <main className="bg-[#F9FAFB] font-body min-h-screen"> {/* Background and font-family */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Page Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-heading text-gray-900 mb-4"> {/* Fira Code for heading */}
+          <h1 className="text-3xl font-heading text-gray-900 mb-4">
             Find Developers
           </h1>
           {/* Search Bar */}

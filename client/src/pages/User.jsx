@@ -13,14 +13,14 @@ const User = () => {
   const [newProject, setNewProject] = useState({ title: '', description: '', link: '' });
   
   const [profile, setProfile] = useState({
-    name: 'Tinaika Pereira',
-    role: 'Data Scientist',
-    location: 'Melbourne, AU',
-    about: 'Data Scientist with 2 years of experience in web development.',
+    name: 'Sam Doe',
+    role: 'Full Stack Developer',
+    location: 'Sydney, AU',
+    about: 'Passionate developer with 2 years of experience in web development. Focused on creating user-friendly applications with modern technologies.',
     skills: [],
     github: 'https://github.com/Tinaika19',
     resume: './src/assets/resume.JPG',
-    profileImage: './src/assets/tinaika_pereira.jpeg',
+    profileImage: './src/assets/user.JPG',
     projects: [
       {
         title: 'E-commerce Platform',
@@ -43,10 +43,13 @@ const User = () => {
       const newSkills = prevProfile.skills.includes(skill)
         ? prevProfile.skills.filter((s) => s !== skill)
         : [...prevProfile.skills, skill];
-      return { ...prevProfile, skills: newSkills };
+      const updatedProfile = { ...prevProfile, skills: newSkills };
+      
+      // Save the updated profile to localStorage
+      localStorage.setItem('userProfile', JSON.stringify(updatedProfile));
+      return updatedProfile;
     });
   };
-
   const handleSave = () => {
     // Save profile data to localStorage
     localStorage.setItem('userProfile', JSON.stringify(profile));
