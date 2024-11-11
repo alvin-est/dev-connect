@@ -4,6 +4,7 @@ import { UPDATE_PROFILE } from '../utils/mutations';
 import { GET_ME } from '../utils/queries';
 import AuthService from '../utils/auth';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 /* Edit page */
 const Edit = () => {
@@ -15,6 +16,9 @@ const Edit = () => {
         resumeURL: '',
         skills: ''
     });
+
+  const navigate = useNavigate();
+
 
     const [updateProfile] = useMutation(UPDATE_PROFILE);
 
@@ -51,7 +55,9 @@ const Edit = () => {
             });
             console.log('Profile updated:', data);
             // Optionally, redirect or show success message here
-            alert('Profile updated successfully', data);
+            // alert('Profile updated successfully', data);
+
+            navigate('/profile');
         } catch (e) {
             console.error('Update failed:', e);
             // Show error message to user
@@ -138,9 +144,9 @@ const Edit = () => {
                 </br>
                 
             </form>
-            <div className="mt-4">
+            {/* <div className="mt-4">
                 <Link to="/user" className="font-semibold text-[#3F94EE] hover:text-[#EB6047]">User Details</Link>
-            </div>
+            </div> */}
         </div>
     </div>
     );

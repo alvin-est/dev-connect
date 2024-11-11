@@ -109,13 +109,13 @@ const Developers = ({ onSelectDeveloper }) => {
   });
 
   const handleDeveloperClick = (developerId) => {
-    if (developerId === 11) {
-      // Redirect Sam Doe (ID 11) to the /profile page (view mode)
-      window.location.href = `/profile?viewMode=true`; // Assuming `/profile` is for the UserProfile
-    } else {
-      // Redirect other developers to their profile pages
-      window.location.href = `/profile/${developerId}`;
-    }
+    // if (developerId === 11) {
+    //   // Redirect Sam Doe (ID 11) to the /profile page (view mode)
+    //   window.location.href = `/profile?viewMode=true`; // Assuming `/profile` is for the UserProfile
+    // } else {
+    //   // Redirect other developers to their profile pages
+    //   window.location.href = `/profile/${developerId}`;
+    // }
   };
 
   return (

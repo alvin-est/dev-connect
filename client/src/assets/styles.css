@@ -120,3 +120,7 @@
 .editForm {
   margin-top: 10px;
 }
+
+h2, h3, li, input, textarea {
+  color: black;
+}
