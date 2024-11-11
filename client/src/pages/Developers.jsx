@@ -14,7 +14,7 @@ const Developers = ({ onSelectDeveloper }) => {
       role: "DevOps Engineer",
       location: "Sydney, AU",
       skills: ["AWS", "Docker", "Kubernetes", "CI/CD", "Linux"],
-      image: "./src/assets/alvin_estado.jpeg",
+      image: "./assets/alvin_estado.jpeg",
     },
     {
       id: 4,
@@ -22,7 +22,7 @@ const Developers = ({ onSelectDeveloper }) => {
       role: "Data Scientist",
       location: "Sydney, AU",
       skills: ["Python", "ML", "Pandas"],
-      image: "./src/assets/tinaika_pereira.jpeg",
+      image: "./assets/tinaika_pereira.jpeg",
     },
     {
       id: 9,
@@ -30,7 +30,7 @@ const Developers = ({ onSelectDeveloper }) => {
       role: "Blockchain Developer",
       location: "Sydney, AU",
       skills: ["Solidity", "Ethereum", "Smart Contracts", "Web3.js", "Node.js"],
-      image: "./src/assets/cameron_beattie.jpeg",
+      image: "./assets/cameron_beattie.jpeg",
     },
     {
       id: 7,
@@ -38,7 +38,7 @@ const Developers = ({ onSelectDeveloper }) => {
       role: "Frontend Developer",
       location: "Sydney, AU",
       skills: ["React", "Figma", "HTML", "CSS"],
-      image: "./src/assets/kate_stapley.jpeg",
+      image: "./assets/kate_stapley.jpeg",
     },
     {
       id: 1,
@@ -46,7 +46,7 @@ const Developers = ({ onSelectDeveloper }) => {
       role: "Full Stack Developer",
       location: "Sydney, AU",
       skills: ["React", "Node.js", "MongoDB"],
-      image: "./src/assets/alex_sexwale.jpeg",
+      image: "./assets/alex_sexwale.jpeg",
     },
     {
       id: 12,
@@ -54,7 +54,7 @@ const Developers = ({ onSelectDeveloper }) => {
       role: "UX/UI Developer",
       location: "Sydney, AU",
       skills: ["Figma", "React", "HTML", "CSS"],
-      image: "./src/assets/tristan_kennedy.jpeg",
+      image: "./assets/tristan_kennedy.jpeg",
     },
     {
       id: 3,
@@ -62,7 +62,7 @@ const Developers = ({ onSelectDeveloper }) => {
       role: "Backend Developer",
       location: "Sydney, AU",
       skills: ["Python", "Django", "PostgreSQL"],
-      image: "./src/assets/june_li.jpeg",
+      image: "./assets/june_li.jpeg",
     },
     {
       id: 5,
@@ -70,7 +70,7 @@ const Developers = ({ onSelectDeveloper }) => {
       role: "Mobile App Developer",
       location: "Sydney, AU",
       skills: ["Flutter", "Dart", "Firebase", "Swift", "Kotlin"],
-      image: "./src/assets/benjamin_rice.jpeg",
+      image: "./assets/benjamin_rice.jpeg",
     },
     {
       id: 8,
@@ -78,7 +78,7 @@ const Developers = ({ onSelectDeveloper }) => {
       role: "Data Analyst",
       location: "Sydney, AU",
       skills: ["SQL", "R", "Google Analytics"],
-      image: "./src/assets/kevin_vongmany.jpeg",
+      image: "./assets/kevin_vongmany.jpeg",
     },
     {
       id: 10,
@@ -86,7 +86,7 @@ const Developers = ({ onSelectDeveloper }) => {
       role: "SaaS Product Manager",
       location: "Sydney, AU",
       skills: ["Agile", "Scrum", "Product Development", "User Stories", "Roadmapping"],
-      image: "./src/assets/wendy_xiao.jpeg",
+      image: "./assets/wendy_xiao.jpeg",
     },
     {
       id: 11,  // Ensure the ID is unique
@@ -94,7 +94,7 @@ const Developers = ({ onSelectDeveloper }) => {
       role: 'Full Stack Developer',
       location: 'Sydney, AU',
       skills: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Node.js'],
-      image: './src/assets/user.JPG',  // Replace with Sam Doe's profile image path
+      image: './assets/user.JPG',  // Replace with Sam Doe's profile image path
     },
   ]);
 
