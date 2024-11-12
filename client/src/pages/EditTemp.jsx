@@ -19,6 +19,8 @@ const Edit = () => {
 
   const navigate = useNavigate();
 
+    /* User Info Getter */
+    const { loading, error, data } = useQuery(GET_ME); // Fetch logged in user's details
 
     const [updateProfile] = useMutation(UPDATE_PROFILE);
 
@@ -74,6 +76,7 @@ const Edit = () => {
                     <input 
                         type="text" 
                         name="bio" 
+                        placeholder={data?.me.profile.bio}
                         value={formState.bio} 
                         onChange={handleChange} 
                         className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-indigo-200"
@@ -84,6 +87,7 @@ const Edit = () => {
                     <input 
                         type="text" 
                         name="photoURL" 
+                        placeholder={data?.me.profile.photoURL}
                         value={formState.photoURL} 
                         onChange={handleChange} 
                         className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-indigo-200"
@@ -94,6 +98,7 @@ const Edit = () => {
                     <input 
                         type="text" 
                         name="role" 
+                        placeholder={data?.me.profile.role}
                         value={formState.role} 
                         onChange={handleChange} 
                         className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-indigo-200"
@@ -104,6 +109,7 @@ const Edit = () => {
                     <input 
                         type="text" 
                         name="location" 
+                        placeholder={data?.me.profile.location}
                         value={formState.location} 
                         onChange={handleChange} 
                         className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-indigo-200"
@@ -114,6 +120,7 @@ const Edit = () => {
                     <input 
                         type="text" 
                         name="githubURL" 
+                        placeholder={data?.me.profile.githubURL}
                         value={formState.githubURL} 
                         onChange={handleChange} 
                         className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-indigo-200"
@@ -124,6 +131,7 @@ const Edit = () => {
                     <input 
                         type="text" 
                         name="resumeURL" 
+                        placeholder={data?.me.profile.resumeURL}
                         value={formState.resumeURL} 
                         onChange={handleChange} 
                         className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-indigo-200"
@@ -134,6 +142,7 @@ const Edit = () => {
                     <input 
                         type="text" 
                         name="skills" 
+                        placeholder={data?.me.profile.skills}
                         value={formState.skills} 
                         onChange={handleChange} 
                         className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-indigo-200"
